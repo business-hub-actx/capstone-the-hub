@@ -1,0 +1,25 @@
+.proHeaderCard {
+    z-index: -2;
+}
+
+.proTitle {
+    color: black;
+    font-size: 40px;
+    font-family: "Times New Roman";
+    font-weight: bolder;
+    background-color: white;
+    margin-left: 200px;
+}
+
+.proList {
+    margin-top: -20px;
+    z-index: 1;
+}
+
+.searchInput {
+    margin-top: 170px;
+}
+
+.filterInput {
+    margin-top: 170px;
+}

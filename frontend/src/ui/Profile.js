@@ -7,26 +7,29 @@ import {ProfileCard} from "./share/components/ProfileCard";
 export const Profile = () => {
     return (
         <>
-            <Card className="proHeaderCard">
-                <Card.Img src={profileHeader} className="proHeader" alt="Here's Johnny!"/>
-                <Card.ImgOverlay>
-                    <Card.Text className="proTitle text-center px-2 mx-5 border border-2 border-dark mt-5">
+            <Container fluid className="proHeader">
+                {/*<Image src={profileHeader} className="proImage" alt="Here's Johnny!"/>*/}
+
+                    <Row className="d-flex justify-content-center">
+                        <Col sm={6}>
+                    <h1 className="proTitle text-center px-2 m-5 border border-2 border-dark">
                         AMARILLO TECH PROFILES
-                    </Card.Text>
+                    </h1>
+                        </Col>
+                    </Row>
                     <Row>
-                        <Col></Col>
-                        <Col>
-                            <Form className="searchInput mx-5">
+                        <Col sm={6}>
+                            <Form className="searchInput m-4">
                                 <FormControl
                                     type="Search"
                                     placeholder="Search"
-                                    className="me-2 rounded-pill"
+                                    className="rounded-pill"
                                     aria-label="Search"
                                 />
                             </Form>
                         </Col>
-                        <Col>
-                            <Form.Select className="filterInput">
+                        <Col sm={6}>
+                            <Form.Select className="filterInput m-4">
                                 <option value="1">Filter</option>
                                 <option value="2">Full-Time</option>
                                 <option value="3">Part-Time</option>
@@ -34,20 +37,24 @@ export const Profile = () => {
                                 <option value="5">Remote</option>
                             </Form.Select>
                         </Col>
-                        <Col></Col>
                     </Row>
-                </Card.ImgOverlay>
-            </Card>
+                </Container>
+
 
             {/* PROFILE LISTINGS*/}
-            <Container className=" proList bg-light border border-2">
-                <Col className="d-block align-items-center">
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                </Col>
-            </Container>
+            {/*<Container className=" proList bg-light border border-2">*/}
+            {/*    <Col className="d-block align-items-center">*/}
+            {/*        <ProfileCard/>*/}
+            {/*        <ProfileCard/>*/}
+            {/*        <ProfileCard/>*/}
+            {/*        <ProfileCard/>*/}
+            {/*        <ProfileCard/>*/}
+            {/*        <ProfileCard/>*/}
+            {/*        <ProfileCard/>*/}
+            {/*    </Col>*/}
+            {/*</Container>*/}
         </>
     )
 }
+
+let navPage = 1

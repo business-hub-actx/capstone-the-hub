@@ -1,5 +1,9 @@
-.proHeaderCard {
-    z-index: -2;
+.proHeader {
+    background-image: url("../images/profile01.webp");
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .proTitle {

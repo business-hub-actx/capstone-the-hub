@@ -30,7 +30,7 @@ export function NavbarComp() {
     )
 }
 
-let currentPage = 1
+let navPage = 1
 let accountStatus = false
 let accountJoin
 let accountLog
@@ -39,28 +39,64 @@ let pagePath1
 let pageLink2
 let pagePath2
 
+navbarDisplay()
 
-if (accountStatus === true) {
-    accountJoin = "Edit Profile"
-    accountLog = "Log Off"
-} else {
-    accountJoin = "Join"
-    accountLog = "Log In"
-}
+function navbarDisplay() {
+    switch (navPage) {
 
-if (currentPage === 2) {
-    pageLink1 = ""
-    pagePath1 = "/"
-    pageLink2 = "Job Postings"
-    pagePath2 = "/job-posting"
-} else if (currentPage === 3) {
-    pageLink1 = ""
-    pagePath1 = "/"
-    pageLink2 = "Profiles"
-    pagePath2 = "/profiles"
-} else {
-    pageLink1 = "Profiles"
-    pagePath1 = "/profiles"
-    pageLink2 = "Job Postings"
-    pagePath2 = "/job-posting"
+        // HOME PAGE
+        case 1:
+            pageLink1 = "Profiles"
+            pagePath1 = "/profiles"
+            pageLink2 = "Job Postings"
+            pagePath2 = "/joblist"
+            if (accountStatus === true) {
+                accountJoin = ""
+                accountLog = "Log Off"
+            } else {
+                accountJoin = "Join"
+                accountLog = "Log In"
+            }
+            break
+
+        // PROFILE PAGE
+        case 2:
+            pageLink1 = ""
+            pagePath1 = "/"
+            pageLink2 = "Job Postings"
+            pagePath2 = "/joblist"
+            if (accountStatus === true) {
+                accountJoin = "Edit Profile"
+                accountLog = "Log Off"
+            } else {
+                accountJoin = "Join"
+                accountLog = "Log In"
+            }
+            break
+
+        // JOB POSTINGS
+        case 3:
+            pageLink1 = ""
+            pagePath1 = "/"
+            pageLink2 = "Profiles"
+            pagePath2 = "/profiles"
+            if (accountStatus === true) {
+                accountJoin = "Post Job"
+                accountLog = ""
+            } else {
+                accountJoin = "Post Job"
+                accountLog = ""
+            }
+            break
+
+        // CREATE A JOB POST
+        case 4:
+            pageLink1 = ""
+            pagePath1 = "/"
+            pageLink2 = ""
+            pagePath2 = "/"
+            accountJoin = ""
+            accountLog = ""
+            break
+    }
 }

@@ -1,12 +1,12 @@
 import React from "react"
 
-export const Home = () => {
+export const JobListing = () => {
     return (
         <>
             <br/>
             <br/>
             <br/>
-            <h1>Home Page</h1>
+            <h1>Job Listings</h1>
         </>
     )
 }

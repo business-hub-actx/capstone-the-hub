@@ -1,6 +1,16 @@
 .main{
-    background-color: rgba(46,152,228,0.19);
+    background-color: rgba(46,170,246,0.12);
     background-size: cover;
+}
+
+.post-a-job{
+    text-align: center;
+}
+
+.job-details{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 ul{
@@ -26,4 +36,21 @@ ul{
     vertical-align: middle;
     position: relative;
     top: -2px;
+}
+
+#form{
+    background-color: white;
+}
+
+.upload-logo{
+    margin-bottom: 40px;
+}
+
+.submit{
+    margin-left: 1100px;
+    margin-top: -150px;
+}
+
+#upload-logoFileAddon01{
+    font-size: xx-large;
 }

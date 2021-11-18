@@ -3,6 +3,7 @@ import {Container, Nav, Navbar} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 export function NavbarComp() {
+    console.log(window.innerWidth)
     return (
         <>
             {/* fixed-top */}
@@ -11,18 +12,42 @@ export function NavbarComp() {
                     <Navbar.Brand href="/">AmTech</Navbar.Brand>
                     <Navbar.Toggle aria-control="expand-main-nav"/>
                     <Navbar.Collapse id="expand-main-nav">
-                        <Nav>
-                            <Nav.Link>
-                                <Link to={pagePath1} className="mx-1">{pageLink1}</Link>
-                                <Link to={pagePath2} className="mx-1">{pageLink2}</Link>
-                            </Nav.Link>
-                        </Nav>
-                        <Nav className="ms-auto">
-                            <Nav.Link>
-                                <Link to="/" className="mx-1">{accountJoin}</Link>
-                                <Link to="/" className="mx-1">{accountLog}</Link>
-                            </Nav.Link>
-                        </Nav>
+                        {(window.innerWidth <= 600)
+                            ? (
+                                <>
+                                    <Nav className="ms-auto">
+                                        <Nav.Link className="ms-auto">
+                                            <Link to="/" className="mx-1">{accountJoin}</Link>
+                                        </Nav.Link>
+                                        <Nav.Link className="ms-auto">
+                                            <Link to="/" className="mx-1">{accountLog}</Link>
+                                        </Nav.Link>
+                                    </Nav>
+                                    <Nav className="ms-auto">
+                                        <Nav.Link className="ms-auto">
+                                            <Link to={pagePath1} className="mx-1">{pageLink1}</Link>
+                                        </Nav.Link>
+                                        <Nav.Link className="ms-auto">
+                                            <Link to={pagePath2} className="mx-1">{pageLink2}</Link>
+                                        </Nav.Link>
+                                    </Nav></>
+                            )
+                            : (
+                                <>
+                                    <Nav>
+                                        <Nav.Link>
+                                            <Link to={pagePath1} className="mx-1">{pageLink1}</Link>
+                                            <Link to={pagePath2} className="mx-1">{pageLink2}</Link>
+                                        </Nav.Link>
+                                    </Nav>
+                                    <Nav className="ms-auto">
+                                        <Nav.Link className="ms-auto">
+                                            <Link to="/" className="mx-1">{accountJoin}</Link>
+                                            <Link to="/" className="mx-1">{accountLog}</Link>
+                                        </Nav.Link>
+                                    </Nav></>
+                            )
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

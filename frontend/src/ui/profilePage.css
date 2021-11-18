@@ -1,9 +1,28 @@
+
+.filterInput {
+    margin-top: 270px;
+    z-index: 2;
+}
+
+.proList {
+    margin-top: -20px;
+    z-index: 1;
+}
+
+.proCol {
+    z-index: 1;
+
+}
+
 .proHeader {
-    background-image: url("../images/profile01.webp");
+    background-image: url("images/profile01.webp");
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 395px;
+    z-index: 0;
+
 }
 
 .proTitle {
@@ -13,17 +32,10 @@
     font-weight: bolder;
     background-color: white;
     margin-left: 200px;
-}
-
-.proList {
-    margin-top: -20px;
-    z-index: 1;
+    margin-top: 80px;
 }
 
 .searchInput {
-    margin-top: 170px;
+    margin-bottom: -400px;
 }
 
-.filterInput {
-    margin-top: 170px;
-}

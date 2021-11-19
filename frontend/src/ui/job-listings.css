@@ -1,0 +1,40 @@
+.filterInput {
+    margin-top: 270px;
+    z-index: 2;
+}
+
+.proList {
+    margin-top: -20px;
+    z-index: 1;
+    position: relative;
+}
+
+.proCol {
+    z-index: 1;
+}
+
+.proHeader {
+    background-image: url("images/working.jpg");
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 395px;
+    z-index: 0;
+
+}
+
+.proTitle {
+    color: black;
+    font-size: 40px;
+    font-family: "Times New Roman";
+    font-weight: bolder;
+    background-color: white;
+    margin-left: 200px;
+    margin-top: 80px;
+}
+
+.searchInput {
+    margin-bottom: -400px;
+}
+

@@ -41,14 +41,14 @@ export function JobForm() {
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridLocation">
                                 <Form.Label>Location</Form.Label>
-                                <Form.Control/>
+                                <Form.Control placeholder="Enter Job Location"></Form.Control>
                                 <Form.Group className="mb-3 mt-0" id="formGridRemote">
                                     <Form.Check type="checkbox" label="Remote"/>
                                 </Form.Group>
                             </Form.Group>
 
-                            <Form.Group as={Col} controlId="ft-pt">
-                                <Form.Label>Full-Time, Part-Time, Freelance</Form.Label>
+                            <Form.Group as={Col} controlId="formEmploymentType">
+                                <Form.Label>Employment Type</Form.Label>
                                 <Form.Select defaultValue="Choose...">
                                     <option>Full-Time</option>
                                     <option>Part-Time</option>
@@ -66,7 +66,6 @@ export function JobForm() {
                                 </Form.Select>
                             </Form.Group>
                         </Row>
-
 
                         <div className="upload-logo">
                             <div className="upload-logo-prepend">

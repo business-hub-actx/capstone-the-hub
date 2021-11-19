@@ -5,6 +5,7 @@
 }
 
 .proList {
+    position: relative;
     margin-top: -20px;
     z-index: 1;
 }
@@ -27,7 +28,7 @@
 
 .proTitle {
     color: black;
-    font-size: 40px;
+    font-size: clamp(1rem, 6vmin, 2rem);
     font-family: "Times New Roman";
     font-weight: bolder;
     background-color: white;

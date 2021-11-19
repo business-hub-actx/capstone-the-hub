@@ -1,0 +1,56 @@
+.main{
+    background-color: rgba(46,170,246,0.12);
+    background-size: cover;
+}
+
+.post-a-job{
+    text-align: center;
+}
+
+.job-details{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+#job-steps li.active em {
+    background: #617482;
+}
+
+#job-steps li em{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-style: normal;
+    line-height: 20px;
+    text-align: -moz-center;
+    background: #c1cbd1;
+    border-radius: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+
+#form{
+    background-color: white;
+}
+
+.upload-logo{
+    margin-bottom: 40px;
+}
+
+.submit{
+    margin-left: 1100px;
+    margin-top: -150px;
+}
+
+#upload-logoFileAddon01{
+    font-size: xx-large;
+}

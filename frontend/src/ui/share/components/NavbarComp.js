@@ -77,7 +77,7 @@ function navbarDisplay() {
             pageLink1 = "Profiles"
             pagePath1 = "/profiles"
             pageLink2 = "Job Postings"
-            pagePath2 = "/joblist"
+            pagePath2 = "/job-listings"
             if (accountStatus === true) {
                 accountJoin = ""
                 accountLog = "Log Off"
@@ -92,7 +92,7 @@ function navbarDisplay() {
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = "Job Postings"
-            pagePath2 = "/joblist"
+            pagePath2 = "/job-listings"
             if (accountStatus === true) {
                 accountJoin = "Edit Profile"
                 accountLog = "Log Off"

@@ -1,0 +1,13 @@
+/*background image css*/
+body {
+	background-image: url("image/city.jpg");
+}
+
+p {
+	text-align: center
+}
+
+#ourParagraph {
+	border-style: solid;
+	padding: 30px;
+}

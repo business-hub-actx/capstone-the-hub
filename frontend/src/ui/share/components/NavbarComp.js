@@ -1,5 +1,6 @@
 import React from "react"
-import {Container, Nav, Navbar} from "react-bootstrap";
+import {Container, Nav, Navbar, Row, Col} from "react-bootstrap";
+import "./navbarComp.css"
 import {Link} from "react-router-dom";
 
 export function NavbarComp() {
@@ -7,43 +8,45 @@ export function NavbarComp() {
     return (
         <>
             {/* fixed-top */}
-            <Navbar className="navBar fixed-top px-3" expand="lg">
+            <Navbar className="navBar px-3" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="/">AmTech</Navbar.Brand>
+                    <Navbar.Brand className="navBrand" href="/">AmarilloTech</Navbar.Brand>
                     <Navbar.Toggle aria-control="expand-main-nav"/>
                     <Navbar.Collapse id="expand-main-nav">
                         {(window.innerWidth <= 600)
                             ? (
                                 <>
-                                    <Nav className="ms-auto">
-                                        <Nav.Link className="ms-auto">
-                                            <Link to="/" className="mx-1">{accountJoin}</Link>
-                                        </Nav.Link>
-                                        <Nav.Link className="ms-auto">
-                                            <Link to="/" className="mx-1">{accountLog}</Link>
-                                        </Nav.Link>
-                                    </Nav>
-                                    <Nav className="ms-auto">
-                                        <Nav.Link className="ms-auto">
-                                            <Link to={pagePath1} className="mx-1">{pageLink1}</Link>
-                                        </Nav.Link>
-                                        <Nav.Link className="ms-auto">
-                                            <Link to={pagePath2} className="mx-1">{pageLink2}</Link>
-                                        </Nav.Link>
-                                    </Nav></>
+                                <Row>
+                                    <Col>
+                                        <Nav className="ms-auto">
+                                            <Nav.Link className="ms-auto">
+                                                <Link to="/" className="navLink mx-1">{accountJoin}</Link>
+                                                <Link to="/" className="navLink mx-1">{accountLog}</Link>
+                                            </Nav.Link>
+                                        </Nav>
+                                    </Col>
+                                    <Col>
+                                        <Nav className="">
+                                            <Nav.Link className="">
+                                                <Link to={pagePath1} className="navLink mobile mx-1">{pageLink1}</Link>
+                                                <Link to={pagePath2} className="navLink mobile mx-1">{pageLink2}</Link>
+                                            </Nav.Link>
+                                        </Nav>
+                                </Col>
+                                </Row></>
                             )
                             : (
                                 <>
                                     <Nav>
                                         <Nav.Link>
-                                            <Link to={pagePath1} className="mx-1">{pageLink1}</Link>
-                                            <Link to={pagePath2} className="mx-1">{pageLink2}</Link>
+                                            <Link to={pagePath1} className="navLink mx-1">{pageLink1}</Link>
+                                            <Link to={pagePath2} className="navLink mx-1">{pageLink2}</Link>
                                         </Nav.Link>
                                     </Nav>
                                     <Nav className="ms-auto">
                                         <Nav.Link className="ms-auto">
-                                            <Link to="/" className="mx-1">{accountJoin}</Link>
-                                            <Link to="/" className="mx-1">{accountLog}</Link>
+                                            <Link to="/" className="navLink mx-1">{accountJoin}</Link>
+                                            <Link to="/" className="navLink mx-1">{accountLog}</Link>
                                         </Nav.Link>
                                     </Nav></>
                             )

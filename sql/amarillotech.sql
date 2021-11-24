@@ -1,42 +1,43 @@
 -- never DROP TABLEs on live data!!!!
 -- not null means the attribute is required!
 -- to make something optional, exclude the not null
-DROP TABLE IF EXISTS profile;
-DROP TABLE IF EXISTS post;
-DROP TABLE IF EXISTS tag;
-DROP TABLE IF EXISTS profileTag;
+
 DROP TABLE IF EXISTS postTag;
+DROP TABLE IF EXISTS profileTag;
+DROP TABLE IF EXISTS tag;
+DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS profile;
 
 -- Profile Table
 CREATE TABLE profile (
                          profileId BINARY(16) NOT NULL,
-                         profileActivationToken CHAR(32),
-                         profileName VARCHAR(32) NOT NULL,
-                         profileEmail VARCHAR(128) NOT NULL,
-                         profileSkills blob NOT NULL,
-                         profileJobTitle VARCHAR(128) NOT NULL,
                          profileAboutMe blob NOT NULL,
-                         profilePhoto VARCHAR(128) NOT NULL,
+                         profileActivationToken CHAR(32),
+                         profileEmail VARCHAR(128) NOT NULL,
                          profileHash CHAR(97) NOT NULL,
+                         profileJobTitle VARCHAR(128) NOT NULL,
+                         profileName VARCHAR(32) NOT NULL,
+                         profilePhoto VARCHAR(255) NOT NULL,
                          profileUrl VARCHAR(128) NOT NULL,
                          profileResume VARCHAR(32),
+                         profileSkills VARCHAR(255) NOT NULL,
                          UNIQUE(profileEmail),
-                         UNIQUE(profileActivationToken),
-                         UNIQUE(profileHash),
                          PRIMARY KEY(profileId)
 );
 -- Post Table
-CREATE TABLE Post (
+CREATE TABLE post (
                        postId BINARY(16) NOT NULL,
-                       postName VARCHAR(32) NOT NULL,
-                       postLogo VARCHAR(128) NOT NULL,
+                       postContactInfo blob NOT NULL,
                        postDescription blob NOT NULL,
                        postJobDescription blob NOT NULL,
                        postLink VARCHAR(128),
+                       postLogo VARCHAR(128) NOT NULL,
+                       postName VARCHAR(32) NOT NULL,
+                       postProfileId BINARY(16) NOT NULL,
                        postWebsite VARCHAR(128),
-                       postContactInfo blob NOT NULL,
                        UNIQUE(postLink),
                        UNIQUE(postWebsite),
+                       FOREIGN KEY(postProfileId) REFERENCES profile(profileId),
                        PRIMARY KEY(postId)
 );
 -- Tag Table
@@ -48,21 +49,25 @@ CREATE TABLE tag (
 
 -- profileTag Table (Weak Entity)
 CREATE TABLE profileTag (
+                            profileTagId BINARY(16) NOT NULL,
                             profileTagProfileId BINARY(16) NOT NULL,
                             profileTagTagId BINARY(16) NOT NULL,
                             INDEX(profileTagProfileId),
                             INDEX(profileTagTagId),
                             FOREIGN KEY(profileTagProfileId) REFERENCES profile(profileId),
-                            FOREIGN KEY(profileTagTagId) REFERENCES tag(tagId)
+                            FOREIGN KEY(profileTagTagId) REFERENCES tag(tagId),
+                            PRIMARY KEY(profileTagId)
 );
 
 
 -- postTag Table (Weak Entity)
 CREATE TABLE postTag (
+                          postTagId BINARY(16) NOT NULL,
                           postTagPostId BINARY(16) NOT NULL,
                           postTagTagId BINARY(16) NOT NULL,
                           INDEX(postTagPostId),
                           INDEX(postTagTagId),
                           FOREIGN KEY(postTagPostId) REFERENCES post(PostId),
-                          FOREIGN KEY(postTagTagId) REFERENCES tag(TagId)
+                          FOREIGN KEY(postTagTagId) REFERENCES tag(TagId),
+                          PRIMARY KEY(postTagId)
 )

@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS profile;
 -- Profile Table
 CREATE TABLE profile (
                          profileId BINARY(16) NOT NULL,
-                         profileAboutMe blob NOT NULL,
+                         profileAboutMe VARCHAR(255) NOT NULL,
                          profileActivationToken CHAR(32),
                          profileEmail VARCHAR(128) NOT NULL,
                          profileHash CHAR(97) NOT NULL,
@@ -27,13 +27,13 @@ CREATE TABLE profile (
 -- Post Table
 CREATE TABLE post (
                        postId BINARY(16) NOT NULL,
-                       postContactInfo blob NOT NULL,
-                       postDescription blob NOT NULL,
+                       postProfileId BINARY(16) NOT NULL,
+                       postContactInfo VARCHAR(255) NOT NULL,
                        postEmail VARCHAR(128),
-                       postJobDescription blob NOT NULL,
+                       postJobDescription VARCHAR(128) NOT NULL,
+                       postJobPosition VARCHAR(128) NOT NULL,
                        postLogo VARCHAR(128) NOT NULL,
                        postName VARCHAR(32) NOT NULL,
-                       postProfileId BINARY(16) NOT NULL,
                        postWebsite VARCHAR(128),
                        UNIQUE(postEmail),
                        UNIQUE(postWebsite),

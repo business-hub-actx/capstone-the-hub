@@ -62,8 +62,7 @@ export const signupValidator: Schema = {
     profileUrl: {
         optional: true,
         isURL: {
-            errorMessage: "URL must be less than one hundred twenty eight characters"
-            options: {min: 10, max: 128}
+            errorMessage: "URL must be less than one hundred twenty eight characters",
         },
         trim: true,
         escape: true

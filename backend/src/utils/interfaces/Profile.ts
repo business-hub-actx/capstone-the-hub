@@ -1,5 +1,17 @@
+export interface partialProfile{
+    profileId: string | null,
+    profileAboutMe: string | null,
+    profileEmail: string | null,
+    profileJobTitle: string | null,
+    profileName: string | null,
+    profilePhoto: string | null,
+    profileUrl: string | null,
+    profileResume: string | null,
+    profileSkills: string | null
+}
+
 export interface Profile{
-    profileId: number | null,
+    profileId: string | null,
     profileAboutMe: string | null,
     profileActivationToken: string | null,
     profileEmail: string | null,
@@ -8,6 +20,6 @@ export interface Profile{
     profileName: string | null,
     profilePhoto: string | null,
     profileUrl: string | null,
-    profileResume: string,
+    profileResume: string | null,
     profileSkills: string | null
 }

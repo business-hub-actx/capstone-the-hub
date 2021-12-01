@@ -7,7 +7,7 @@ import { param } from "express-validator";
 
 const { checkSchema } = require('express-validator');
 
-const SignUpRoute = Router();
+export const SignUpRoute = Router();
 
 SignUpRoute.route('/')
   .post(
@@ -21,4 +21,3 @@ SignUpRoute.route('/activation/:activation')
     activationController
   )
 
-export default SignUpRoute;

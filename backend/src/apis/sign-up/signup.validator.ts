@@ -44,4 +44,23 @@ export const signupValidator: Schema = {
             options: {min: 1, max: 255}
         }
     },
+
+    profilePassword: {
+        escape: true,
+        trim: true,
+        isLength: {
+            errorMessage: 'Password must be under two hundred fifty-five characters',
+            options: {min: 8, max: 255}
+        }
+    },
+
+    profilePasswordConfirm: {
+        escape: true,
+        trim: true,
+        isLength: {
+            errorMessage: 'Passwords must match',
+            options: {min: 1, max: 255}
+        }
+    }
+
 }

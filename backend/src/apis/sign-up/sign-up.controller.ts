@@ -19,6 +19,7 @@ export async function signupProfileController(request: Request, response: Respon
 		const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY})
 
 		const {profilePhoto, profileAboutMe, profileJobTitle, profileEmail, profileName, profileUrl, profileSkills, profilePassword} = request.body;
+		console.log("profile Password", profilePassword)
 		const profileHash = await setHash(profilePassword);
 		const profileActivationToken = setActivationToken();
 		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
@@ -63,7 +64,7 @@ export async function signupProfileController(request: Request, response: Respon
 		return response.json(status)
 
 	} catch (error: any) {
-
+    console.error(error)
 		const status: Status = {
 			status: 500,
 			message: error.message,

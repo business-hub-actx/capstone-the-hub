@@ -1,4 +1,4 @@
-export interface partialProfile{
+export interface PartialProfile{
     profileId: string | null,
     profileAboutMe: string,
     profileEmail: string,

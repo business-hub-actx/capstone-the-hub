@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import "express-session";
-import uuid from 'uuid';
+import { v4 as uuid }from 'uuid';
 import { generateJwt, validatePassword } from "../../utils/auth.utils";
 import { Profile } from "../../utils/interfaces/Profile";
 import { selectProfileByProfileEmail } from "../../utils/profile/selectProfileByProfileEmail";
@@ -8,23 +8,13 @@ import { selectProfileByProfileEmail } from "../../utils/profile/selectProfileBy
 export async function signInController(request: Request, response: Response): Promise<Response | undefined> {
     const {profileEmail} = request.body
     const mySqlResult: Profile | null = await selectProfileByProfileEmail(profileEmail);
-    const isEmailValid: boolean = !!mySqlResult
+    const isEmailValid: boolean = mySqlResult ? true : false
     try {
         const authenticate = async () => {
             const {profilePassword} = request.body;
-            const {
-                profileId,
-                profileAboutMe,
-                profileActivationToken,
-                profileEmail,
-                profileHash,
-                profileJobTitle,
-                profileName,
-                profilePhoto,
-                profileUrl,
-                profileResume,
-                profileSkills
-            } = mySqlResult
+
+            // @ts-ignore
+            const {profileId, profileAboutMe, profileActivationToken, profileEmail, profileHash, profileJobTitle, profileName, profilePhoto, profileUrl, profileResume, profileSkills} = mySqlResult
 
             const profile: Profile = {
                 profileId,

@@ -22,7 +22,7 @@ export async function signupProfileController(request: Request, response: Respon
 		console.log("profile Password", profilePassword)
 		const profileHash = await setHash(profilePassword);
 		const profileActivationToken = setActivationToken();
-		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
+		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
 		console.log(profileActivationToken)
 
 		const message = `<h2>Welcome to Amarillo Tech Hub.</h2>

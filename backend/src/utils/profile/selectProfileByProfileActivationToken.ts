@@ -10,6 +10,7 @@ export async function selectProfileByProfileActivationToken(profileActivationTok
         const rows: Profile[] = result[0] as Profile[]
         return rows.length === 1 ? {...rows[0]} : null;
     }  catch (error) {
+        console.log(error)
         throw error
     }
 }

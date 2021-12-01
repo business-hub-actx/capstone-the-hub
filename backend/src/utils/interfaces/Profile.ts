@@ -1,25 +1,25 @@
 export interface partialProfile{
     profileId: string | null,
-    profileAboutMe: string | null,
-    profileEmail: string | null,
-    profileJobTitle: string | null,
-    profileName: string | null,
-    profilePhoto: string | null,
-    profileUrl: string | null,
+    profileAboutMe: string,
+    profileEmail: string,
+    profileJobTitle: string,
+    profileName: string,
+    profilePhoto: string,
+    profileUrl: string,
     profileResume: string | null,
-    profileSkills: string | null
+    profileSkills: string
 }
 
 export interface Profile{
     profileId: string | null,
-    profileAboutMe: string | null,
+    profileAboutMe: string,
     profileActivationToken: string | null,
-    profileEmail: string | null,
-    profileHash: string | null,
-    profileJobTitle: string | null,
-    profileName: string | null,
-    profilePhoto: string | null,
-    profileUrl: string | null,
+    profileEmail: string,
+    profileHash: string,
+    profileJobTitle: string,
+    profileName: string,
+    profilePhoto: string,
+    profileUrl: string,
     profileResume: string | null,
-    profileSkills: string | null
+    profileSkills: string
 }

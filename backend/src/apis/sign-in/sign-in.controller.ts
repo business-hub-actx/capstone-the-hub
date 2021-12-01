@@ -1,9 +1,9 @@
 import {Request, Response} from 'express';
 import "express-session";
 import uuid from 'uuid';
-import {generateJwt, validatePassword} from "../../utils/auth.utils";
-import {Profile} from "../../utils/interfaces/Profile";
-import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
+import { generateJwt, validatePassword } from "../../utils/auth.utils";
+import { Profile } from "../../utils/interfaces/Profile";
+import { selectProfileByProfileEmail } from "../../utils/profile/selectProfileByProfileEmail";
 
 export async function signInController(request: Request, response: Response): Promise<Response | undefined> {
     const {profileEmail} = request.body

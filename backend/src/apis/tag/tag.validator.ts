@@ -1,11 +1,6 @@
 import {Schema} from 'express-validator';
 
 export const tagValidator: Schema = {
-    tagId: {
-        isUUID: {
-            errorMessage: 'Please provide a valid tagID'
-        }
-    },
 
     tagName: {
         escape: true,

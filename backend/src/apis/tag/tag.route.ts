@@ -1,4 +1,9 @@
-import { getTagByTagIdController, getTagByTagNameController, postTagController } from "./tag.controller";
+import {
+    getAllTagsController,
+    getTagByTagIdController,
+    getTagByTagNameController,
+    postTagController
+} from "./tag.controller";
 import {Router} from "express";
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
 import {check, checkSchema} from "express-validator";

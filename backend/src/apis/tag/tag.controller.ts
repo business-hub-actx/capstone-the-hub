@@ -9,7 +9,6 @@ import {insertTag} from "../../utils/tag/insertTag";
 export async function postTagController(request: Request, response: Response): Promise<Response> {
     try {
         const {tagName} = request.body
-        console.log(tagName)
         const tag:Tag = {tagId:null, tagName:tagName}
         await insertTag(tag)
         const status: Status = {
@@ -40,6 +39,21 @@ export async function getTagByTagIdController(request: Request, response: Respon
 }
 
 export async function getTagByTagNameController(request: Request, response: Response) {
+    try {
+        const {tagName} = request.params
+        const data: Tag | null = await selectTagByTagName(tagName)
+        const status: Status = {
+            status: 200,
+            data: data,
+            message: null
+        }
+        return response.json(status)
+    } catch (error: any) {
+        return (response.json({status: 400, data: null, message: error.message}))
+    }
+}
+
+export async function getAllTagsController(request: Request, response: Response) {
     try {
         const {tagName} = request.params
         const data: Tag | null = await selectTagByTagName(tagName)

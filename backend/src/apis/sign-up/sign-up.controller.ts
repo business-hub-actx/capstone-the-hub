@@ -4,7 +4,7 @@ import {setActivationToken, setHash} from '../../utils/auth.utils';
 import {Profile} from '../../utils/interfaces/Profile';
 import {Status} from '../../utils/interfaces/Status';
 import {insertProfile} from '../../utils/profile/insertProfile';
-import formData from 'form-data'
+import formData from 'form-data';
 import Mailgun from 'mailgun.js';
 import Client from 'mailgun.js/dist/lib/client';
 

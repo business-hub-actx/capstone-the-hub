@@ -3,7 +3,7 @@ import {Schema} from 'express-validator';
 export const profileValidator: Schema = {
     profileId: {
         isUUID:{
-            errorMessage: 'Please provide a valid tagProfileID'
+            errorMessage: 'Please provide a valid ID'
         }
     },
 

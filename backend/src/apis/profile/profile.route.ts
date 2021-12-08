@@ -1,4 +1,5 @@
 import {
+    getAllProfilesController,
     getPartialProfileByProfileIdController,
     getProfileByProfileEmailController,
     getProfileByProfileIdController,
@@ -67,5 +68,15 @@ ProfileRoute.route("/tag/:profileTag")
 
 // Profile Update
 ProfileRoute.route("/:profileId")
+    .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+
+// Get All Profiles
+ProfileRoute.route("/all/:profileId")
+    .get(
+        asyncValidatorController([
+            check("profileId", "").isUUID()
+        ])
+        , getAllProfilesController
+    )
     .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
 

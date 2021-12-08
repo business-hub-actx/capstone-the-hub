@@ -7,6 +7,7 @@ import { selectProfileByProfileEmail } from "../../utils/profile/selectProfileBy
 import { updateProfile } from "../../utils/profile/updateProfile";
 import {selectPartialProfileByProfileId} from "../../utils/profile/selectPartialProfileByProfileId";
 import {selectProfilesByProfileTagProfileId} from "../../utils/profile/selectProfileByProfileTagProfileId";
+import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
 
 // Update Profile
 export async function putProfileController(request: Request, response: Response): Promise<Response> {
@@ -115,5 +116,18 @@ export async function getProfileByProfileTagProfileIdController(request: Request
     }
 }
 
+export async function getAllProfilesController(request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const data = await selectAllProfiles()
+        const status: Status = {status: 200, message: null, data};
+        return response.json(status);
+    } catch(error) {
+        return response.json({
+            status: 500,
+            message: "",
+            data: []
+        })
+    }
+}
 
 

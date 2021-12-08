@@ -7,7 +7,7 @@ export const postValidator: Schema = {
         }
     },
 
-    postProfileeId: {
+    postProfileId: {
         isUUID: {
             errorMessage: "Please provide a valid email"
         },
@@ -18,7 +18,7 @@ export const postValidator: Schema = {
         escape: true,
         trim: true,
         isLength: {
-            errorMessage: "Post must be under two hundred-fifty-five characters"
+            errorMessage: "Post must be under two hundred-fifty-five characters",
             options: {min: 1, max: 255}
         },
 

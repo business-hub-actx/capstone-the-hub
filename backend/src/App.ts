@@ -6,6 +6,7 @@ import { SignUpRoute } from './apis/sign-up/sign-up.route'
 import session from "express-session";
 import {SignInRouter} from "./apis/sign-in/sign-in.route";
 import {SignOutRoute} from "./apis/sign-out/sign-out.route";
+import {PostRoute} from "./apis/post/post.route"
 const MemoryStore = require('memorystore')(session);
 
 
@@ -41,6 +42,7 @@ export class App {
         this.app.use(morgan('dev'))
         this.app.use(express.json())
         this.app.use(session(sessionConfig))
+
     }
 
     // private method for setting up routes in their basic sense (ie. any route that performs an action on profiles starts with /profiles)
@@ -50,7 +52,7 @@ export class App {
         this.app.use('/apis/sign-up', SignUpRoute)
         this.app.use('/apis/sign-in', SignInRouter)
         this.app.use('/apis/sign-out', SignOutRoute)
-        this.app.use('/apis/profile')
+        this.app.use('/apis/post', PostRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

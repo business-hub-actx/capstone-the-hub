@@ -1,18 +1,7 @@
 import {Schema} from 'express-validator';
 
 export const postValidator: Schema = {
-    postId: {
-        isUUID:{
-            errorMessage: 'Please provide a valid postID'
-        }
-    },
 
-    postProfileId: {
-        isUUID: {
-            errorMessage: "Please provide a valid email"
-        },
-        trim: true
-    },
 
     postContactInfo: {
         escape: true,
@@ -63,7 +52,8 @@ export const postValidator: Schema = {
 
     postCompany: {
         isLength: {
-            errorMessage: 'Company name must be under thirty-two characters'
+            errorMessage: 'Company name must be under thirty-two characters',
+            options: {min: 1, max:32}
         },
         trim: true
     },

@@ -1,14 +1,15 @@
 import {Request, Response} from "express";
 import {PartialProfile, Profile} from "../../utils/interfaces/Profile";
-import {Status} from "../../utils/interfaces/Status";
-import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfileId";
-import {updateProfile} from "../../utils/profile/updateProfile";
+import { Status } from "../../utils/interfaces/Status";
+import { selectProfileByProfileId } from "../../utils/profile/selectProfileByProfileId";
+import { selectProfileByProfileName } from "../../utils/profile/selectProfileByProfileName";
+import { updateProfile } from "../../utils/profile/updateProfile";
 
 
 export async function putProfileController(request: Request, response: Response): Promise<Response> {
     try {
         const {profileId} = request.params
-        const {profileEmail, profileName, profilePhoto} = request.body
+        const {profileAboutMe, profileJobTitle, profileEmail, profileName, profilePhoto, profileUrl, profileResume, profileSkills} = request.body
         const profile = <Profile>request.session.profile
         const profileIdFromSession = <string>profile.profileId
 
@@ -46,21 +47,18 @@ export async function getProfileByProfileIdController(request: Request, response
     }
 }
 
-/*
-
-
-export async function getProfileByProfileId(request: Request, response: Response) : Promise<Response> {
+export async function getProfileByProfileNameController(request: Request, response: Response) {
     try {
-        const {profileId} = request.params;
-        const mySqlResult = await selectPartialProfileByProfileId(profileId);
-        const data = mySqlResult ?? null
-        const status: Status = {status: 200, data, message: null}
+        const {profileId} = request.params
+        const data: Profile | null = await selectProfileByProfileName(profileId)
+        const status: Status = {
+            status: 200,
+            data: data,
+            message: null
+        }
         return response.json(status)
-
     } catch (error: any) {
-        return(response.json({status: 400, data: null, message: error.message}))
-
+        return (response.json({status: 400, data: null, message: error.message}))
     }
-
 }
-*/
+

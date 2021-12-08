@@ -6,6 +6,7 @@ import { SignUpRoute } from './apis/sign-up/sign-up.route'
 import session from "express-session";
 import {SignInRouter} from "./apis/sign-in/sign-in.route";
 import {TagRoute} from "./apis/tag/tag.route";
+import {postTagRoute} from "./apis/postTag/postTag.routes";
 const MemoryStore = require('memorystore')(session);
 
 
@@ -50,6 +51,7 @@ export class App {
         this.app.use('/apis/sign-up', SignUpRoute)
         this.app.use('/apis/sign-in', SignInRouter)
         this.app.use('/apis/tag', TagRoute)
+        this.app.use('/apis/postTag', postTagRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

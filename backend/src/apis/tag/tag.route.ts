@@ -2,7 +2,7 @@ import {
     getAllTagsController,
     getTagByTagIdController,
     getTagByTagNameController,
-    postTagController
+    createTagController
 } from "./tag.controller";
 import {Router} from "express";
 import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
@@ -13,7 +13,7 @@ import {tagValidator} from "./tag.validator";
 export const TagRoute: Router = Router();
 TagRoute.route('/')
     .get(getAllTagsController)
-    .post(asyncValidatorController(checkSchema (tagValidator)), postTagController);
+    .post(asyncValidatorController(checkSchema (tagValidator)), createTagController);
 
 TagRoute.route("/:tagId")
     .get(
@@ -23,7 +23,7 @@ TagRoute.route("/:tagId")
         , getTagByTagIdController
     )
 
-TagRoute.route("/:tagName")
+TagRoute.route("/tagName/:tagName")
     .get(
         asyncValidatorController([
             check("tagName", "please provide a valid tagName").isString()

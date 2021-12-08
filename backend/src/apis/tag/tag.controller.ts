@@ -4,9 +4,10 @@ import {Status} from "../../utils/interfaces/Status";
 import {selectTagByTagId} from "../../utils/tag/selectTagByTagId"
 import {selectTagByTagName} from "../../utils/tag/selectTagByTagName";
 import {insertTag} from "../../utils/tag/insertTag";
+import {selectAllTags} from "../../utils/tag/selectAllTags";
 
 
-export async function postTagController(request: Request, response: Response): Promise<Response> {
+export async function createTagController(request: Request, response: Response): Promise<Response> {
     try {
         const {tagName} = request.body
         const tag:Tag = {tagId:null, tagName:tagName}
@@ -55,8 +56,8 @@ export async function getTagByTagNameController(request: Request, response: Resp
 
 export async function getAllTagsController(request: Request, response: Response) {
     try {
-        const {tagName} = request.params
-        const data: Tag | null = await selectTagByTagName(tagName)
+
+        const data = await selectAllTags()
         const status: Status = {
             status: 200,
             data: data,

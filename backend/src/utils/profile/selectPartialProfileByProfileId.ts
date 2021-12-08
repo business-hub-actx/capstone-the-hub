@@ -1,8 +1,8 @@
 import {connect} from "../database.utils";
-import {PartialProfile, Profile} from '../interfaces/Profile';
+import {PartialProfile} from '../interfaces/Profile';
 import {RowDataPacket} from 'mysql2';
 
-export async function selectPartialProfileByProfileId(profileId: string) : Promise<PartialProfile|null> {
+export async function selectPartialProfileByProfileId(profileId: string) : Promise<PartialProfile | null> {
     try {
         const mysqlConnection = await connect();
         const mysqlQuery : string = "SELECT BIN_TO_UUID(profileId) as profileId,  profilePhoto, profileAboutMe, profileJobTitle, profileEmail, profileName, profileUrl, profileResume, profileSkills FROM profile WHERE profileId = UUID_TO_BIN(:profileId)"

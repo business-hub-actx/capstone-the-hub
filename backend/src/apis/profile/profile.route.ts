@@ -1,7 +1,9 @@
 import {
+    getPartialProfileByProfileIdController,
     getProfileByProfileEmailController,
     getProfileByProfileIdController,
     getProfileByProfileNameController,
+    getProfileByProfileTagProfileIdController,
     putProfileController
 } from "./profile.controller";
 import { Router } from "express";
@@ -18,11 +20,20 @@ ProfileRoute.route('/')
 ProfileRoute.route("/:profileId")
     .get(
         asyncValidatorController([
-            check("profileId", "please provide a valid profileId").isUUID()
+            check("profileId", "please provide a valid profile Id").isUUID()
         ])
         , getProfileByProfileIdController
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+
+// Partial Profile Id
+ProfileRoute.route("/partial/:profileId")
+    .get(
+        asyncValidatorController([
+            check("profileId", "please provide a valid profile Id").isUUID()
+        ])
+        , getPartialProfileByProfileIdController
+    )
 
 // Profile Name
 ProfileRoute.route("/name/:profileName")
@@ -34,6 +45,7 @@ ProfileRoute.route("/name/:profileName")
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
 
+// Profile Email
 ProfileRoute.route("/email/:profileEmail")
     .get(
         asyncValidatorController([
@@ -42,3 +54,18 @@ ProfileRoute.route("/email/:profileEmail")
         , getProfileByProfileEmailController
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+
+// Profile Tag
+ProfileRoute.route("/tag/:profileTag")
+    .get(
+        asyncValidatorController([
+            check("profileTagId", "Must provide a valid tag id").isUUID()
+        ])
+        , getProfileByProfileTagProfileIdController
+    )
+    .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+
+// Profile Update
+ProfileRoute.route("/:profileId")
+    .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+

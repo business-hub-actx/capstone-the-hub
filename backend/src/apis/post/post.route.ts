@@ -47,7 +47,7 @@ PostRoute.route("/create-post/:postId")
 
 
 
-PostRoute.route("/tag/:postTagId")
+PostRoute.route("/tag/:postId")
     .get(
         asyncValidatorController([
             check("postId", "please provide a valid postId").isUUID()

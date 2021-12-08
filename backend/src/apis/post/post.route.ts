@@ -1,12 +1,21 @@
-import { getAllPostController, getPostByPostId, getPostByPostCompany, getPostByPostTagPostId } from "./post.controller";
+import {
+    getAllPostController,
+    getPostByPostId,
+    getPostByPostCompany,
+    getPostByPostTagPostId,
+    createPostController
+} from "./post.controller";
 import { Router } from "express";
 import { asyncValidatorController } from "../../utils/controllers/asyncValidator.controller";
 import { check, checkSchema } from "express-validator";
+import {postValidator} from "./post.validator";
+import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 
 export const PostRoute = Router();
 PostRoute.route('/')
-    .get(getAllPostController);
+    .get(getAllPostController)
+    .post(isLoggedIn,asyncValidatorController(checkSchema(postValidator)),createPostController)
 
 PostRoute.route("/postId/:postId")
     .get(
@@ -38,7 +47,7 @@ PostRoute.route("/create-post/:postId")
 
 
 
-PostRoute.route("/create-post/:postId")
+PostRoute.route("/tag/:postTagId")
     .get(
         asyncValidatorController([
             check("postId", "please provide a valid postId").isUUID()

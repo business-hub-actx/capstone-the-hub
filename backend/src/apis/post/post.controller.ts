@@ -3,7 +3,7 @@ import {Status} from "../../utils/interfaces/Status";
 import {selectPostByPostId} from "../../utils/post/selectPostByPostId";
 import {selectAllPosts} from "../../utils/post/selectAllPosts"
 import {selectPostByPostCompany} from "../../utils/post/selectPostByPostCompany"
-import { selectPostByPostTagPostId } from "../../utils/post/selectPostByPostTagPostId";
+import { selectPostByPostTagId } from "../../utils/post/selectPostByPostTagId";
 import {Profile} from "../../utils/interfaces/Profile";
 import {Post} from "../../utils/interfaces/Post";
 import {insertPost} from "../../utils/post/insertPost";
@@ -37,10 +37,6 @@ export async function getPostByPostId(request: Request, response: Response) : Pr
 
 }
 
-
-
-
-
     export async function getPostByPostCompany(request: Request, response: Response) : Promise<Response> {
         try {
             const {postId} = request.params;
@@ -59,10 +55,10 @@ export async function getPostByPostId(request: Request, response: Response) : Pr
 
 
 
-export async function getPostByPostTagPostId(request: Request, response: Response) : Promise<Response> {
+export async function getPostByPostTagId(request: Request, response: Response) : Promise<Response> {
     try {
         const {postId} = request.params;
-        const mySqlResult = await selectPostByPostTagPostId(postId);
+        const mySqlResult = await selectPostByPostTagId(postId);
         const data = mySqlResult ?? null
         const status: Status = {status: 200, data, message: null}
         return response.json(status)
@@ -71,8 +67,6 @@ export async function getPostByPostTagPostId(request: Request, response: Respons
         return (response.json({status: 400, data: null, message: error.message}))
 
     }
-
-
 }
 
 export async function createPostController(request: Request, response: Response) : Promise<Response> {

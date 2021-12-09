@@ -5,6 +5,8 @@ import { indexRoute } from './apis/index.routes'
 import { SignUpRoute } from './apis/sign-up/sign-up.route'
 import session from "express-session";
 import {SignInRouter} from "./apis/sign-in/sign-in.route";
+import {TagRoute} from "./apis/tag/tag.route";
+import {postTagRoute} from "./apis/postTag/postTag.routes";
 import {SignOutRoute} from "./apis/sign-out/sign-out.route";
 import {PostRoute} from "./apis/post/post.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
@@ -53,6 +55,8 @@ export class App {
         this.app.use('/apis', indexRoute)
         this.app.use('/apis/sign-up', SignUpRoute)
         this.app.use('/apis/sign-in', SignInRouter)
+        this.app.use('/apis/tag', TagRoute)
+        this.app.use('/apis/postTag', postTagRoute)
         this.app.use('/apis/sign-out', SignOutRoute)
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/profile', ProfileRoute)

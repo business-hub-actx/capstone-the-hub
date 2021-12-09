@@ -1,5 +1,4 @@
-export interface postTag{
-    postTagId: string,
+export interface PostTag{
     postTagPostId: string,
     postTagTagId: string
 }

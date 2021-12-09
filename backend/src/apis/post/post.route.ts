@@ -2,8 +2,8 @@ import {
     getAllPostController,
     getPostByPostId,
     getPostByPostCompany,
-    getPostByPostTagPostId,
-    createPostController
+    createPostController,
+    getPostByPostTagId
 } from "./post.controller";
 import { Router } from "express";
 import { asyncValidatorController } from "../../utils/controllers/asyncValidator.controller";
@@ -26,7 +26,7 @@ PostRoute.route("/postId/:postId")
     )
     // .put(asyncValidatorController(checkSchema(postValidator)), putPostController)
 
-PostRoute.route("/company/:postCompany")
+PostRoute.route("/postCompany/:postCompany")
     .get(
         asyncValidatorController([
             check("postCompany")])
@@ -41,17 +41,17 @@ PostRoute.route("/create-post/:postId")
         asyncValidatorController([
             check("postId", "please provide a valid postId").isUUID()
         ])
-        , getPostByPostTagPostId
+        , getPostByPostTagId
     )
     // .put(asyncValidatorController(checkSchema(postValidator)), putPostController)
 
 
 
-PostRoute.route("/tag/:postId")
-    .get(
-        asyncValidatorController([
-            check("postId", "please provide a valid postId").isUUID()
-        ])
-        , getPostByPostTagPostId
-    )
+// PostRoute.route("/tag/:postId")
+//     .get(
+//         asyncValidatorController([
+//             check("postId", "please provide a valid postId").isUUID()
+//         ])
+//         , getPostByPostTagId
+//     )
     // .put(asyncValidatorController(checkSchema(postValidator)), putPostController)

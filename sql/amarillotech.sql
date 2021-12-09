@@ -57,18 +57,18 @@ CREATE TABLE profileTag (
                             INDEX(profileTagTagId),
                             FOREIGN KEY(profileTagProfileId) REFERENCES profile(profileId),
                             FOREIGN KEY(profileTagTagId) REFERENCES tag(tagId),
-                            PRIMARY KEY(profileTagId)
+                            PRIMARY KEY(profileTagProfileId, profileTagTagId)
 );
 
 
 -- postTag Table (Weak Entity)
 CREATE TABLE postTag (
-                          postTagId BINARY(16) NOT NULL,
+
                           postTagPostId BINARY(16) NOT NULL,
                           postTagTagId BINARY(16) NOT NULL,
                           INDEX(postTagPostId),
                           INDEX(postTagTagId),
                           FOREIGN KEY(postTagPostId) REFERENCES post(PostId),
                           FOREIGN KEY(postTagTagId) REFERENCES tag(TagId),
-                          PRIMARY KEY(postTagId)
+                          PRIMARY KEY(postTagPostId, postTagTagId)
 )

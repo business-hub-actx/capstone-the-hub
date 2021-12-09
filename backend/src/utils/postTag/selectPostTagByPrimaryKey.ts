@@ -7,7 +7,7 @@ export async function selectPostTagByPrimaryKey(postTag: PostTag){
         const mySqlConnection = await connect()
         const mySqlQuery = "SELECT BIN_TO_UUID (postTagPostId) AS postTagPostId, BIN_TO_UUID(postTagTagId) AS postTagTagId FROM postTag WHERE postTagPostId = UUID_TO_BIN(:postTagPostId) AND postTagTagId =  UUID_TO_BIN(:postTagTagId)";
         const [rows] = await mySqlConnection.execute(mySqlQuery, postTag)
-        await mySqlConnection.end()
+
         console.log(rows)
         return rows
 

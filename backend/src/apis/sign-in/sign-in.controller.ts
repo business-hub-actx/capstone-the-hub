@@ -6,12 +6,13 @@ import { Profile } from "../../utils/interfaces/Profile";
 import { selectProfileByProfileEmail } from "../../utils/profile/selectProfileByProfileEmail";
 
 export async function signInController(request: Request, response: Response): Promise<Response | undefined> {
-    const {profileEmail} = request.body
+    const {profileEmail, profilePassword} = request.body
     const mySqlResult: Profile | null = await selectProfileByProfileEmail(profileEmail);
     const isEmailValid: boolean = mySqlResult ? true : false
     try {
         const authenticate = async () => {
             const {profilePassword} = request.body;
+            console.log(profilePassword)
 
             // @ts-ignore
             const {profileId, profileAboutMe, profileActivationToken, profileEmail, profileHash, profileJobTitle, profileName, profilePhoto, profileUrl, profileResume, profileSkills} = mySqlResult
@@ -44,9 +45,9 @@ export async function signInController(request: Request, response: Response): Pr
             });
 
             const signInSuccessful = () => {
-                if (profile.profileActivationToken !== null) {
-                    signInFailed("please activate your account")
-                }
+                // if (profile.profileActivationToken !== null) {
+                //     signInFailed("please activate your account")
+                // }
 
                 if (request.session) {
                     request.session.profile = profile;

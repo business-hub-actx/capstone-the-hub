@@ -6,41 +6,23 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const dispatch = useDispatch()
-const profile = useSelector(state => {return state.profile ? state.profile : null})
+const profile = useSelector(state => {
+    return state.profile ? state.profile : null
+})
 const sideEffects = () => {
     dispatch(fetchProfileByProfileId())
 }
 
 React.useEffect(sideEffects, [])
-return(
+return (
     <>
         <Container>
             <Row>
                 <Col>
-                    {profile && <EditProfile}
+                    {profile && <EditProfileForm profile={profile}/>}
                 </Col>
             </Row>
         </Container>
-
     </>
 )
-
-
-
-
-/*
-import { EditProfileForm } from './EditProfileForm'
-        <>
-            <Container>
-                <Row>
-                    <Col>
-                        {profile && <EditProfileForm profile={profile}/>}
-                    </Col>
-
-                </Row>
-            </Container>
-        </>
-    )
 };
-
- */

@@ -67,13 +67,14 @@ let pagePath1
 let pageLink2
 let pagePath2
 
-navbarDisplay()
+navbarDisplay(window.location.href)
 
-function navbarDisplay() {
+function navbarDisplay(navPage) {
+    console.log(navPage);
     switch (navPage) {
 
         // HOME PAGE
-        case 1:
+        case 'localhost:3000':
             pageLink1 = "Profiles"
             pagePath1 = "/profiles"
             pageLink2 = "Job Postings"
@@ -88,7 +89,7 @@ function navbarDisplay() {
             break
 
         // PROFILE PAGE
-        case 2:
+        case 'localhost:3000/profiles':
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = "Job Postings"
@@ -103,22 +104,22 @@ function navbarDisplay() {
             break
 
         // JOB POSTINGS
-        case 3:
+        case 'localhost:3000/job-listings':
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = "Profiles"
             pagePath2 = "/profiles"
             if (accountStatus === true) {
                 accountJoin = "Post Job"
-                accountLog = ""
+                accountLog = "Log Out"
             } else {
-                accountJoin = "Post Job"
-                accountLog = ""
+                accountJoin = "Join"
+                accountLog = "Log In"
             }
             break
 
         // CREATE A JOB POST
-        case 4:
+        case 'localhost:3000/post':
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = ""

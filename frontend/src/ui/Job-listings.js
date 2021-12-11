@@ -1,15 +1,15 @@
 import React from "react";
 import {Container, Row, Col, Form, FormControl} from "react-bootstrap";
 import "./job-listings.css"
-import {ProfileCard} from "./ProfileCard";
+import {PostCard} from "./share/components/PostCard";
 
 export function JobListings() {
     return (
         <>
-            <Container fluid className="proHeader">
+            <Container fluid className="jobHeader">
                 <Row className="d-flex justify-content-center">
                     <Col lg={6} sm={6} className="m-5">
-                        <h1 className="proTitle text-center px-2 m-5 border border-2 border-dark">
+                        <h1 className="jobTitle text-center px-2 m-5 border border-2 border-dark">
                             AMARILLO JOB LISTINGS
                         </h1>
                     </Col>
@@ -37,16 +37,16 @@ export function JobListings() {
                 </Row>
             </Container>
 
-            {/*PROFILE LISTINGS*/}
-            <Container className="proList bg-light border border-2">
-                <Col className="proCol d-block align-items-center">
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
+            {/*JOB POST LISTINGS*/}
+            <Container className="jobList bg-light border border-2">
+                <Col className="jobCol d-block align-items-center">
+                    <PostCard/>
+                    <PostCard/>
+                    <PostCard/>
+                    <PostCard/>
+                    <PostCard/>
+                    <PostCard/>
+                    <PostCard/>
                 </Col>
             </Container>
         </>

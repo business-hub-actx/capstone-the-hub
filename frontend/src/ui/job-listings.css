@@ -3,17 +3,17 @@
     z-index: 2;
 }
 
-.proList {
+.jobList {
     margin-top: -20px;
     z-index: 1;
     position: relative;
 }
 
-.proCol {
+.jobCol {
     z-index: 1;
 }
 
-.proHeader {
+.jobHeader {
     background-image: url("images/working.jpg");
     position: relative;
     background-position: center;
@@ -24,10 +24,10 @@
 
 }
 
-.proTitle {
+.jobTitle {
     color: black;
     font-size: 40px;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", monospace;
     font-weight: bolder;
     background-color: white;
     margin-left: 200px;

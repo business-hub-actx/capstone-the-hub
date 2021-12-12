@@ -69,7 +69,7 @@ export function SignupModal() {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Signup form</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validation}>
@@ -109,51 +109,56 @@ function SignupFormContent(props) {
                               onBlur={handleBlur} placeholder="Enter email"/>
             </Form.Group>
              <HandleError errors = {errors} touched = {touched} value = {"profileEmail"}/>
+
             <Form.Group className="mb-3" controlId="profilePassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control value={values.profilePassword} type="password" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Password"/>
             </Form.Group>
-
             <HandleError errors = {errors} touched = {touched} value = {"profilePassword"}/>
+
             <Form.Group className="mb-3" controlId="profilePasswordConfirm">
                 <Form.Label>Password Confirm</Form.Label>
                 <Form.Control value={values.profilePasswordConfirm} type="password" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Password"/>
             </Form.Group>
+            <HandleError errors = {errors} touched = {touched} value = {"profilePasswordConfirm"}/>
+
             <Form.Group className="mb-3" controlId="profileName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control value={values.profileName} type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="John Smith"/>
             </Form.Group>
+            <HandleError errors = {errors} touched = {touched} value = {"profileName"}/>
 
-            <HandleError errors = {errors} touched = {touched} value = {"profileJobTitle"}/>
             <Form.Group className="mb-3" controlId="profileJobTitle">
                 <Form.Label>Job Title</Form.Label>
                 <Form.Control value={values.profileJobTitle} type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Fullstack Developer"/>
             </Form.Group>
+            <HandleError errors = {errors} touched = {touched} value = {"profileJobTitle"}/>
 
-            <HandleError errors = {errors} touched = {touched} value = {"profileUrl"}/>
             <Form.Group className="mb-3" controlId="profileUrl">
                 <Form.Label>Url</Form.Label>
                 <Form.Control value={values.profileUrl} type="url" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Awesome portfolio"/>
             </Form.Group>
+            <HandleError errors = {errors} touched = {touched} value = {"profileUrl"}/>
 
-            <HandleError errors = {errors} touched = {touched} value = {"profileSkills"}/>
             <Form.Group className="mb-3" controlId="profileSkills">
                 <Form.Label>Skills</Form.Label>
                 <Form.Control value={values.profileSkills} type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Languages and frameworks"/>
             </Form.Group>
+            <HandleError errors = {errors} touched = {touched} value = {"profileSkills"}/>
 
-            <HandleError errors = {errors} touched = {touched} value = {"profileAboutMe"}/>
             <Form.Group className="mb-3" controlId="profileAboutMe">
                 <Form.Label>AboutMe</Form.Label>
-                <Form.Control value={values.profileAboutMe} type="url" onChange={handleChange}
+                <Form.Control value={values.profileAboutMe} type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Bio"/>
             </Form.Group>
+            <HandleError errors = {errors} touched = {touched} value = {"profileAboutMe"}/>
+
             <button className={"btn btn-primary"} onClick={handleSubmit} type="submit">
                 submit
             </button>

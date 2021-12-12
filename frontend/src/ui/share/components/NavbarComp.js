@@ -3,6 +3,7 @@ import {Container, Nav, Navbar, Row, Col} from "react-bootstrap";
 import "./navbarComp.css"
 import {Link} from "react-router-dom";
 import {SignupModal} from "./SignupModal";
+import {SignInModal} from "./SignInModal";
 
 export function NavbarComp() {
     console.log(window.innerWidth)
@@ -47,7 +48,8 @@ export function NavbarComp() {
                                     <Nav className="ms-auto">
                                         <Nav.Link className="ms-auto">
                                             <SignupModal />
-                                            <Link to="/" className="navLink mx-1">{accountLog}</Link>
+                                            <SignInModal />
+                                            {/*<Link to="/" className="navLink mx-1">{accountLog}</Link>*/}
                                         </Nav.Link>
                                     </Nav></>
                             )

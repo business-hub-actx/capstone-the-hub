@@ -2,12 +2,7 @@ import {Schema} from 'express-validator';
 
 export const signupValidator: Schema = {
 
-    profilePhoto: {
-        isLength: {
-            errorMessage: 'Image path must be less than two hundred fifty five characters',
-            options: {min: 1, max: 255}
-        },
-    },
+
 
     profileName: {
         escape: true,
@@ -27,12 +22,6 @@ export const signupValidator: Schema = {
         },
     },
 
-    profileResume: {
-        isLength: {
-            errorMessage: 'Resume path must be less than 32 characters',
-            options: {min: 1, max: 32}
-        },
-    },
 
     profileSkills: {
         escape: true,
@@ -64,8 +53,6 @@ export const signupValidator: Schema = {
         isURL: {
             errorMessage: "URL must be less than one hundred twenty eight characters",
         },
-        trim: true,
-        escape: true
     },
 
     profilePassword: {

@@ -2,6 +2,7 @@ import React from "react"
 import {Container, Nav, Navbar, Row, Col} from "react-bootstrap";
 import "./navbarComp.css"
 import {Link} from "react-router-dom";
+import {SignupModal} from "./SignupModal";
 
 export function NavbarComp() {
     console.log(window.innerWidth)
@@ -16,24 +17,24 @@ export function NavbarComp() {
                         {(window.innerWidth <= 600)
                             ? (
                                 <>
-                                <Row>
-                                    <Col>
-                                        <Nav className="ms-auto">
-                                            <Nav.Link className="ms-auto">
-                                                <Link to="/" className="navLink mx-1">{accountJoin}</Link>
-                                                <Link to="/" className="navLink mx-1">{accountLog}</Link>
-                                            </Nav.Link>
-                                        </Nav>
-                                    </Col>
-                                    <Col>
-                                        <Nav className="">
-                                            <Nav.Link className="">
-                                                <Link to={pagePath1} className="navLink mobile mx-1">{pageLink1}</Link>
-                                                <Link to={pagePath2} className="navLink mobile mx-1">{pageLink2}</Link>
-                                            </Nav.Link>
-                                        </Nav>
-                                </Col>
-                                </Row></>
+                                    <Row>
+                                        <Col>
+                                            <Nav className="ms-auto">
+                                                <Nav.Link className="ms-auto">
+                                                    <Link to="/" className="navLink mx-1">{accountJoin}</Link>
+                                                    <Link to="/" className="navLink mx-1">{accountLog}</Link>
+                                                </Nav.Link>
+                                            </Nav>
+                                        </Col>
+                                        <Col>
+                                            <Nav className="">
+                                                <Nav.Link className="">
+                                                    <Link to={pagePath1} className="navLink mobile mx-1">{pageLink1}</Link>
+                                                    <Link to={pagePath2} className="navLink mobile mx-1">{pageLink2}</Link>
+                                                </Nav.Link>
+                                            </Nav>
+                                        </Col>
+                                    </Row></>
                             )
                             : (
                                 <>
@@ -45,7 +46,7 @@ export function NavbarComp() {
                                     </Nav>
                                     <Nav className="ms-auto">
                                         <Nav.Link className="ms-auto">
-                                            <Link to="/" className="navLink mx-1">{accountJoin}</Link>
+                                            <SignupModal />
                                             <Link to="/" className="navLink mx-1">{accountLog}</Link>
                                         </Nav.Link>
                                     </Nav></>
@@ -67,14 +68,13 @@ let pagePath1
 let pageLink2
 let pagePath2
 
-navbarDisplay(window.location.href)
+navbarDisplay()
 
-function navbarDisplay(navPage) {
-    console.log(navPage);
+function navbarDisplay() {
     switch (navPage) {
 
         // HOME PAGE
-        case 'localhost:3000':
+        case 1:
             pageLink1 = "Profiles"
             pagePath1 = "/profiles"
             pageLink2 = "Job Postings"
@@ -89,7 +89,7 @@ function navbarDisplay(navPage) {
             break
 
         // PROFILE PAGE
-        case 'localhost:3000/profiles':
+        case 2:
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = "Job Postings"
@@ -104,22 +104,22 @@ function navbarDisplay(navPage) {
             break
 
         // JOB POSTINGS
-        case 'localhost:3000/job-listings':
+        case 3:
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = "Profiles"
             pagePath2 = "/profiles"
             if (accountStatus === true) {
                 accountJoin = "Post Job"
-                accountLog = "Log Out"
+                accountLog = ""
             } else {
-                accountJoin = "Join"
-                accountLog = "Log In"
+                accountJoin = "Post Job"
+                accountLog = ""
             }
             break
 
         // CREATE A JOB POST
-        case 'localhost:3000/post':
+        case 4:
             pageLink1 = ""
             pagePath1 = "/"
             pageLink2 = ""

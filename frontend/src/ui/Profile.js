@@ -43,7 +43,7 @@ export const Profile = () => {
             {/*PROFILE LISTINGS*/}
             <Container className="proList bg-light border border-2">
                 <Col className="proCol d-block align-items-center">
-                    {profiles.map(profile => <ProfileCard profile={{profile}} key={profile.profileId}/>)}
+                    {/*{profiles.map(profile => <ProfileCard profile={{profile}} key={profile.profileId}/>)}*/}
                     <ProfileCard/>
                     <ProfileCard/>
                     <ProfileCard/>

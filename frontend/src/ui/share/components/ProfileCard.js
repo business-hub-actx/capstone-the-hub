@@ -4,7 +4,7 @@ import smProfilePic from "../../images/port1.webp"
 import {fetchProfileByProfileId} from "../../../store/profile";
 
 
-export function ProfileCard() {
+export function ProfileCard({profile}) {
     const profileContent = fetchProfileByProfileId.payload
 
     return (

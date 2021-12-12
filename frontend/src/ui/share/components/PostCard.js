@@ -1,18 +1,15 @@
 import React from "react"
 import {Card, Row, Col} from "react-bootstrap";
-import smProfilePic from "../../images/port1.webp"
-import {fetchProfileByProfileId} from "../../../store/profile";
+import smLogoPic from "../../images/port1.webp"
 
 
-export function ProfileCard() {
-    const profileContent = fetchProfileByProfileId.payload
-
+export function PostCard() {
     return (
         <>
             <Card className="my-2">
                 <Row>
                     <Col lg={1} xs={3} className="p-1">
-                        <Card.Img fluid src={smProfilePic} className="proPic ms-2" alt="Profile Portrait"/>
+                        <Card.Img fluid src={smLogoPic} className="proPic ms-2" alt="Company Logo"/>
                     </Col>
                     <Col>
                         <Card.Body>

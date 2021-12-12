@@ -1,12 +1,12 @@
 import {Request, Response} from "express";
 import {PartialProfile, Profile} from "../../utils/interfaces/Profile";
-import { Status } from "../../utils/interfaces/Status";
-import { selectProfileByProfileId } from "../../utils/profile/selectProfileByProfileId";
-import { selectProfileByProfileName } from "../../utils/profile/selectProfileByProfileName";
-import { selectProfileByProfileEmail } from "../../utils/profile/selectProfileByProfileEmail";
-import { updateProfile } from "../../utils/profile/updateProfile";
+import {Status} from "../../utils/interfaces/Status";
+import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfileId";
+import {selectProfileByProfileName} from "../../utils/profile/selectProfileByProfileName";
+import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
+import {updateProfile} from "../../utils/profile/updateProfile";
 import {selectPartialProfileByProfileId} from "../../utils/profile/selectPartialProfileByProfileId";
-import {selectProfilesByProfileTagProfileId} from "../../utils/profile/selectProfileByProfileTagProfileId";
+import {selectProfilesByProfileTagId} from "../../utils/profile/selectProfilesByProfileTagId";
 import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
 
 // Update Profile
@@ -101,10 +101,10 @@ export async function getPartialProfileByProfileIdController(request: Request, r
 }
 
 // Profile by Profile Tag Profile Id
-export async function getProfileByProfileTagProfileIdController(request: Request, response: Response) {
+export async function getProfilesByProfileTagIdController(request: Request, response: Response) {
     try {
         const {profileId} = request.params
-        const data: Profile | null = await selectProfilesByProfileTagProfileId(profileId)
+        const data: Profile | null = await selectProfilesByProfileTagId(profileId)
         const status: Status = {
             status: 200,
             data: data,

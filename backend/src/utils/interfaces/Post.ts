@@ -8,6 +8,5 @@ export interface Post{
     postLogo: string,
     postCompany: string,
     postWebsite: string | null
-
 }
 

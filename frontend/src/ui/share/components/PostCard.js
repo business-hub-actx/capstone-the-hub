@@ -14,7 +14,7 @@ export function PostCard({post}) {
                     <Col>
                         <Card.Body>
                             <Card.Text>
-                                {post.postDescription}
+                                {post.postDescription}g
                             </Card.Text>
                         </Card.Body>
                     </Col>

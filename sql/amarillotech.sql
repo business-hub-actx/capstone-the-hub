@@ -63,7 +63,7 @@ CREATE TABLE profileTag (
 
 -- postTag Table (Weak Entity)
 CREATE TABLE postTag (
-                          postTagId BINARY(16) NOT NULL,
+
                           postTagPostId BINARY(16) NOT NULL,
                           postTagTagId BINARY(16) NOT NULL,
                           INDEX(postTagPostId),

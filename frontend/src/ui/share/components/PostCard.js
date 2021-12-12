@@ -3,20 +3,18 @@ import {Card, Row, Col} from "react-bootstrap";
 import smLogoPic from "../../images/port1.webp"
 
 
-export function PostCard() {
+export function PostCard({post}) {
     return (
         <>
             <Card className="my-2">
                 <Row>
                     <Col lg={1} xs={3} className="p-1">
-                        <Card.Img fluid src={smLogoPic} className="proPic ms-2" alt="Company Logo"/>
+                        <Card.Img fluid src={post.postLogo} className="proPic ms-2" alt="Company Logo"/>
                     </Col>
                     <Col>
                         <Card.Body>
                             <Card.Text>
-                                You enjoyed that. A surprise party? Mr. Worf, I hate surprise parties. I would *never*
-                                do that to you. This is not about revenge. This is about justice. I'd like to think that
-                                I haven't changed those things, sir.
+                                {post.postDescription}g
                             </Card.Text>
                         </Card.Body>
                     </Col>

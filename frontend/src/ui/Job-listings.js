@@ -1,9 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Container, Row, Col, Form, FormControl} from "react-bootstrap";
 import "./job-listings.css"
+
+
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllPosts} from "../store/post";
+
 import {PostCard} from "./share/components/PostCard";
 
+
 export function JobListings() {
+
+    const posts = useSelector( state => state.post ? state.post : []);
+    const dispatch = useDispatch();
+    const effects = () => {
+        dispatch(fetchAllPosts());
+    };
+    const inputs = [];
+    useEffect(effects,inputs);
+
     return (
         <>
             <Container fluid className="jobHeader">
@@ -37,16 +52,12 @@ export function JobListings() {
                 </Row>
             </Container>
 
+
+
             {/*JOB POST LISTINGS*/}
             <Container className="jobList bg-light border border-2">
                 <Col className="jobCol d-block align-items-center">
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
+                    {posts.map(post => <PostCard post={post} key={post.postId}/>)}
                 </Col>
             </Container>
         </>

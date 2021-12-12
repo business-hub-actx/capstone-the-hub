@@ -1,9 +1,12 @@
 import React from "react"
 import {Card, Row, Col} from "react-bootstrap";
 import smProfilePic from "../../images/port1.webp"
+import {fetchProfileByProfileId} from "../../../store/profile";
 
 
 export function ProfileCard() {
+    const profileContent = fetchProfileByProfileId.payload
+
     return (
         <>
             <Card className="my-2">

@@ -2,6 +2,8 @@ import React from "react"
 import {Container, Nav, Navbar, Row, Col} from "react-bootstrap";
 import "./navbarComp.css"
 import {Link} from "react-router-dom";
+import {SignupModal} from "./SignupModal";
+import {SignInModal} from "./SignInModal";
 
 export function NavbarComp() {
     console.log(window.innerWidth)
@@ -16,24 +18,24 @@ export function NavbarComp() {
                         {(window.innerWidth <= 600)
                             ? (
                                 <>
-                                <Row>
-                                    <Col>
-                                        <Nav className="ms-auto">
-                                            <Nav.Link className="ms-auto">
-                                                <Link to="/" className="navLink mx-1">{accountJoin}</Link>
-                                                <Link to="/" className="navLink mx-1">{accountLog}</Link>
-                                            </Nav.Link>
-                                        </Nav>
-                                    </Col>
-                                    <Col>
-                                        <Nav className="">
-                                            <Nav.Link className="">
-                                                <Link to={pagePath1} className="navLink mobile mx-1">{pageLink1}</Link>
-                                                <Link to={pagePath2} className="navLink mobile mx-1">{pageLink2}</Link>
-                                            </Nav.Link>
-                                        </Nav>
-                                </Col>
-                                </Row></>
+                                    <Row>
+                                        <Col>
+                                            <Nav className="ms-auto">
+                                                <Nav.Link className="ms-auto">
+                                                    <Link to="/" className="navLink mx-1">{accountJoin}</Link>
+                                                    <Link to="/" className="navLink mx-1">{accountLog}</Link>
+                                                </Nav.Link>
+                                            </Nav>
+                                        </Col>
+                                        <Col>
+                                            <Nav className="">
+                                                <Nav.Link className="">
+                                                    <Link to={pagePath1} className="navLink mobile mx-1">{pageLink1}</Link>
+                                                    <Link to={pagePath2} className="navLink mobile mx-1">{pageLink2}</Link>
+                                                </Nav.Link>
+                                            </Nav>
+                                        </Col>
+                                    </Row></>
                             )
                             : (
                                 <>
@@ -45,8 +47,9 @@ export function NavbarComp() {
                                     </Nav>
                                     <Nav className="ms-auto">
                                         <Nav.Link className="ms-auto">
-                                            <Link to="/" className="navLink mx-1">{accountJoin}</Link>
-                                            <Link to="/" className="navLink mx-1">{accountLog}</Link>
+                                            <SignupModal />
+                                            <SignInModal />
+                                            {/*<Link to="/" className="navLink mx-1">{accountLog}</Link>*/}
                                         </Nav.Link>
                                     </Nav></>
                             )

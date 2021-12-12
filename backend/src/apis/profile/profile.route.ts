@@ -4,7 +4,7 @@ import {
     getProfileByProfileEmailController,
     getProfileByProfileIdController,
     getProfileByProfileNameController,
-    getProfileByProfileTagProfileIdController,
+    getProfilesByProfileTagIdController,
     putProfileController
 } from "./profile.controller";
 import { Router } from "express";
@@ -62,7 +62,7 @@ ProfileRoute.route("/tag/:profileTag")
         asyncValidatorController([
             check("profileTagId", "Must provide a valid tag id").isUUID()
         ])
-        , getProfileByProfileTagProfileIdController
+        , getProfilesByProfileTagIdController
     )
     .put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
 

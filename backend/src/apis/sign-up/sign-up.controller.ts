@@ -46,14 +46,14 @@ export async function signupProfileController(request: Request, response: Respon
 			profileHash,
 			profileJobTitle,
 			profileName,
-			profilePhoto,
+			profilePhoto: "https://placekitten.com/200/200",
 			profileUrl,
 			profileResume: null,
 			profileSkills
 		};
 		await insertProfile(profile)
 
-		await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
+		//await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
 
 		const status: Status = {
 			status: 200,

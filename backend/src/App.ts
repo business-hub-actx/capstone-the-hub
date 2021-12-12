@@ -10,6 +10,7 @@ import {postTagRoute} from "./apis/postTag/postTag.routes";
 import {SignOutRoute} from "./apis/sign-out/sign-out.route";
 import {PostRoute} from "./apis/post/post.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
+const helmet = require("helmet")
 
 const MemoryStore = require('memorystore')(session);
 
@@ -45,6 +46,7 @@ export class App {
         };
         this.app.use(morgan('dev'))
         this.app.use(express.json())
+        this.app.use(helmet())
         this.app.use(session(sessionConfig))
 
     }

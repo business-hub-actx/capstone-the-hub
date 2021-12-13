@@ -11,7 +11,7 @@ import {insertPostTag} from "../../utils/postTag/insertPostTag";
 export async function createPostTagController(request: Request, response: Response): Promise<Response> {
     try {
         const {postTagPostId, postTagTagId} = request.body
-        const postTag:PostTag = {postTagPostId:postTagPostId, postTagTagId:postTagTagId}
+        const postTag:PostTag = {postTagId:null, postTagPostId:postTagPostId, postTagTagId:postTagTagId}
         await insertPostTag(postTag)
         const status: Status = {
             status: 200,
@@ -60,7 +60,7 @@ export async function getPostTagByPrimaryKey(request: Request, response: Respons
     try {
         const {postId, tagId} = request.params
         const postTag = {postTagPostId:postId, postTagTagId:tagId}
-        const data = await selectPostTagByPrimaryKey(postTag)
+        const data = await selectPostTagByPrimaryKey(postId, tagId)
         const status: Status = {
             status: 200,
             data: data,

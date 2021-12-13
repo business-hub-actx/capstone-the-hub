@@ -1,5 +1,5 @@
 export interface PostTag{
-    postTagId: string,
+    postTagId: string | null,
     postTagPostId: string,
     postTagTagId: string
 }

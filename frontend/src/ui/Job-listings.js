@@ -1,23 +1,36 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Container, Row, Col, Form, FormControl} from "react-bootstrap";
 import "./job-listings.css"
+import {Dropdown} from "react-bootstrap";
 
 
 import {useDispatch, useSelector} from "react-redux";
-import {fetchAllPosts} from "../store/post";
+import {fetchPostsForJobListing} from "../store/post";
 
 import {PostCard} from "./share/components/PostCard";
+import {fetchPostTagByPostTagTagId, fetchPostTagsByPrimaryKey} from "../store/postTag";
+import {fetchAllTags} from "../store/tag";
 
 
 export function JobListings() {
 
+    const [postTagTagId, setPostTagTagId] = useState(null)
     const posts = useSelector( state => state.post ? state.post : []);
+    const tags = useSelector(state => state.tag ? state.tag : []);
+    const postTags = useSelector(state => state.postTag ? state.postTag : []);
     const dispatch = useDispatch();
     const effects = () => {
-        dispatch(fetchAllPosts());
+        dispatch(fetchPostsForJobListing());
+        dispatch(fetchAllTags());
+        // dispatch(fetchPostTagsByPrimaryKey(postTagPostId, postTagTagId))
     };
-    const inputs = [];
-    useEffect(effects,inputs);
+    const inputs = [dispatch, postTagTagId]
+
+    useEffect(effects, inputs);
+
+    const filteredPosts = posts.filter(post => post.postId === postTags.find(postTag => postTag.postTagPostId === post.postId))
+    console.log(filteredPosts)
+
 
     return (
         <>
@@ -40,15 +53,17 @@ export function JobListings() {
                             />
                         </Form>
                     </Col>
-                    <Col lg={3} md={3} sm={4} xs={5} className="mt-lg-5">
-                        <Form.Select className="filterInput m-3">
-                            <option>Filters</option>
-                            <option value="1">Full-Time</option>
-                            <option value="2">Part-Time</option>
-                            <option value="3">Freelance</option>
-                            <option value="4">Remote</option>
-                        </Form.Select>
-                    </Col>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                Dropdown Button
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                {tags.map(tag =>  <Dropdown.Item value=""
+                                    onClick={() => {
+                                        dispatch(fetchPostTagByPostTagTagId(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)}
+                            </Dropdown.Menu>
+                        </Dropdown>
                 </Row>
             </Container>
 

@@ -8,12 +8,15 @@ const profileSlice = createSlice({
     reducers: {
         getProfileByProfileId: (profile, action) => {
             return action.payload
-        }
+        },
+        getAllProfiles: (profile, action) => {
+            return action.payload
+}
+
     }
 })
 
 export const {getProfileByProfileId} = profileSlice.actions
-export default profileSlice.reducer
 export const fetchProfileByProfileId = () => async (dispatch, getState) => {
     await dispatch(fetchAuth())
     const {auth} = getState()
@@ -24,3 +27,12 @@ export const fetchProfileByProfileId = () => async (dispatch, getState) => {
         dispatch(getProfileByProfileId(data))
     }
 }
+
+export const {getAllProfiles} = profileSlice.actions
+
+export const fetchAllProfiles = () => async (dispatch) => {
+    const {data} = await httpConfig('/apis/profile');
+    dispatch(getAllProfiles(data))
+}
+
+export default profileSlice.reducer

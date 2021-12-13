@@ -1,9 +1,19 @@
-import React from "react"
+import React, {useEffect} from "react"
 import "./profilePage.css"
 import {Container, Row, Form, Col, FormControl} from "react-bootstrap";
 import {ProfileCard} from "./share/components/ProfileCard";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllProfiles, fetchProfileByProfileId} from "../store/profile";
 
 export const Profile = () => {
+    const profiles = useSelector( state => state.profile ? state.profile : []);
+    const dispatch = useDispatch();
+    const effects = () => {
+        dispatch(fetchAllProfiles());
+    };
+    const inputs = [];
+    useEffect(effects,inputs);
+
     return (
         <>
             <Container fluid className="proHeader">
@@ -43,14 +53,7 @@ export const Profile = () => {
             {/*PROFILE LISTINGS*/}
             <Container className="proList bg-light border border-2">
                 <Col className="proCol d-block align-items-center">
-                    {/*{profiles.map(profile => <ProfileCard profile={{profile}} key={profile.profileId}/>)}*/}
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
-                    <ProfileCard/>
+                    {profiles.map(profile => <ProfileCard profile={profile} key={profile.profileId}/>)}
                 </Col>
             </Container>
         </>

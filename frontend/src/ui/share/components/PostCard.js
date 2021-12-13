@@ -1,7 +1,5 @@
 import React from "react"
 import {Card, Row, Col} from "react-bootstrap";
-import smLogoPic from "../../images/port1.webp"
-
 
 export function PostCard({post}) {
     return (
@@ -14,7 +12,7 @@ export function PostCard({post}) {
                     <Col>
                         <Card.Body>
                             <Card.Text>
-                                {post.postDescription}g
+                                {post.postDescription}
                             </Card.Text>
                         </Card.Body>
                     </Col>

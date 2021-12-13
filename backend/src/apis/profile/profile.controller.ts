@@ -116,6 +116,7 @@ export async function getProfilesByProfileTagIdController(request: Request, resp
     }
 }
 
+// Select all profiles
 export async function getAllProfilesController(request: Request, response: Response): Promise<Response<Status>> {
     try {
         const data = await selectAllProfiles()

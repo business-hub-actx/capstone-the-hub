@@ -1,0 +1,9 @@
+#landing {
+    background-image: url("./images/LandingPic.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#AC-image{
+    padding-top: 500px;
+}

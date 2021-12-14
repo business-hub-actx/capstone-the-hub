@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {Container, Row, Col, Form, FormControl} from "react-bootstrap";
+import {Container, Row, Col, Form, FormControl, Dropdown} from "react-bootstrap";
 import "./job-listings.css"
-import {Dropdown} from "react-bootstrap";
+
 
 
 import {useDispatch, useSelector} from "react-redux";

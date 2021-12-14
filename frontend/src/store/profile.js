@@ -3,6 +3,8 @@ import {combineReducers} from '@reduxjs/toolkit'
 import {createSlice} from '@reduxjs/toolkit'
 import {fetchAuth} from './auth'
 import {setPostTagsByPostId} from "./postTag";
+import {setProfileTagsByProfileId} from "./profileTag";
+import {getAllTags} from "./tag";
 
 const profileSlice = createSlice({
     name: "profile",

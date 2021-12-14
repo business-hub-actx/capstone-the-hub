@@ -1,5 +1,5 @@
 export interface ProfileTag{
-    profileTagId: string,
+    profileTagId: string | null,
     profileTagProfileId: string,
     profileTagTagId: string
 }

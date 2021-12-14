@@ -31,7 +31,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
     //
     //     )
     //   : false;
-
+console.log(unverifiedJwtToken)
     const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
         if (unverifiedJwtToken === undefined) {
             return false

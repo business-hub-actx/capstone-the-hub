@@ -63,7 +63,7 @@ export function SignupModal() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="Transparent" className="m-0 p-0" onClick={handleShow}>
                 Sign up
             </Button>
 
@@ -77,9 +77,9 @@ export function SignupModal() {
                     </Formik>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
+                {/*    <Button variant="secondary" onClick={handleClose}>*/}
+                {/*        Close*/}
+                {/*    </Button>*/}
                 </Modal.Footer>
             </Modal>
         </>
@@ -168,7 +168,7 @@ function SignupFormContent(props) {
             <div className={status.type}>{status.message}</div>
         </>
     )}
-            <FormDebugger {...props}/>
+            {/*<FormDebugger {...props}/>*/}
         </>
     )
 }

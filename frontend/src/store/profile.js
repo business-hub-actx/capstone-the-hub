@@ -15,6 +15,9 @@ const profileSlice = createSlice({
         },
         getAllProfiles: (profile, action) => {
             return action.payload
+        },
+        sortProfilesByTag: (profiles, action) => {
+            return profiles
         }
 
     }
@@ -36,17 +39,17 @@ export const {getAllProfiles} = profileSlice.actions
 
 export const fetchAllProfiles = () => async (dispatch) => {
     const {data} = await httpConfig('/apis/profile');
-    const tags = await httpConfig(`/apis/tag`).data
+    const tags = await httpConfig('/apis/tag').data
 
-    for ( const profile of data){
-        const profileId =profile.profileId
+    for (const profile of data) {
+        const profileId = profile.profileId
         const profileTags = await httpConfig(`/apis/profileTag/profileTagProfileId/${profileId}`)
-    if (profileTags.data.length > 0) {
-        dispatch(setProfileTagsByProfileId(profileTags.data))
+        if (profileTags.data.length > 0) {
+            dispatch(setProfileTagsByProfileId(profileTags.data))
+        }
     }
-}
-dispatch(getAllProfiles(data))
-dispatch(getAllTags(tags))
+    dispatch(getAllProfiles(data))
+    dispatch(getAllTags(tags))
 }
 
 export default profileSlice.reducer

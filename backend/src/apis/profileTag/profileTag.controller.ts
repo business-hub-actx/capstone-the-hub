@@ -2,9 +2,9 @@ import {Request, Response} from "express";
 import {ProfileTag} from "../../utils/interfaces/ProfileTag";
 import {Status} from "../../utils/interfaces/Status";
 import {selectProfileTagByProfileId} from "../../utils/profileTag/selectProfileTagProfileId"
-import {selectProfileTagByTagId} from "../../utils/ProfileTag/selectProfileTagByTagId";
-import {selectProfileTagByPrimaryKey} from "../../utils/ProfileTag/selectProfileTagByPrimaryKey";
-import {insertProfileTag} from "../../utils/ProfileTag/insertProfileTag";
+import {insertProfileTag} from "../../utils/profileTag/insertProfileTag";
+import {selectProfileTagByTagId} from "../../utils/profileTag/selectProfileTagByTagId";
+import {selectProfileTagByPrimaryKey} from "../../utils/profileTag/selectProfileTagByPrimaryKey";
 
 
 

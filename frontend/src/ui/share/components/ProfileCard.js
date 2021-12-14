@@ -5,22 +5,22 @@ import {useSelector} from "react-redux";
 
 export function ProfileCard({profile}) {
     const tags = useSelector(state => {
-        const profileTags = state.profileTag.filter(profileTag => profileTag.profileTagPostId === profile.profileId)
+        const profileTags = state.profileTag.filter(profileTag => profileTag.profileTagProfileId === profile.profileId)
         let tags = []
-
+console.log(profileTags)
         for(let profileTag of profileTags){
             const tag = state.tag.find(tag => profileTag.profileTagTagId === tag.tagId)
             tags.push(tag)
         }
         return tags
     })
-
+    console.log(tags)
     return (
         <>
             <Card className="my-2">
                 <Row>
                     <Col lg={1} xs={3} className="p-1">
-                        <Card.Img fluid src={profile.profilePhoto} className="proPic ms-3 mt-3" alt="Profile Portrait"/>
+                        <Card.Img fluid src={profile.profileUrl} className="proPic ms-3 mt-3" alt="Profile Portrait"/>
                     </Col>
                     <Col>
                         <Card.Body>
@@ -34,7 +34,7 @@ export function ProfileCard({profile}) {
                                     </Col>
                                     <Col>
                                         <Link to="profile.profileEmail">{profile.profileEmail}</Link> <br/>
-                                        <Link to="profile.profileUrl">{profile.profileUrl}</Link>
+                                        {/*<Link to="profile.profileUrl">{profile.profileUrl}</Link>*/}
                                         <Link to="profile.profileResume">{profile.profileResume}</Link>
                                     </Col>
                                 </Row>

@@ -11,7 +11,7 @@ import {profileTagValidator} from "./profileTag.validator";
 export const profileTagRoute = Router()
 
 profileTagRoute.route("/")
-    .profile(isLoggedIn, asyncValidatorController(checkSchema(profileTagValidator)), createProfileTagController)
+    .post(isLoggedIn, asyncValidatorController(checkSchema(profileTagValidator)), createProfileTagController)
 profileTagRoute.route("/profileTagId/:tagId")
     .get(asyncValidatorController([
         check("tagId", "please provide a tag Id").isUUID()

@@ -17,7 +17,7 @@ export function JobListings() {
     const [postTagTagId, setPostTagTagId] = useState(null)
     const posts = useSelector( state => state.post ? state.post : []);
     const tags = useSelector(state => state.tag ? state.tag : []);
-    const postTags = useSelector(state => state.postTag ? state.postTag : []);
+    // const postTags = useSelector(state => state.postTag ? state.postTag : []);
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchPostsForJobListing());
@@ -28,8 +28,8 @@ export function JobListings() {
 
     useEffect(effects, inputs);
 
-    const filteredPosts = posts.filter(post => post.postId === postTags.find(postTag => postTag.postTagPostId === post.postId))
-    console.log(filteredPosts)
+    // const filteredPosts = posts.filter(post => post.postId === postTags.find(postTag => postTag.postTagPostId === post.postId))
+    // console.log(filteredPosts)
 
 
     return (

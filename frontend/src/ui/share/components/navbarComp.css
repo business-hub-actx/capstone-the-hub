@@ -1,6 +1,6 @@
 .navBar {
     position: relative;
-    margin-bottom: -60px;
+    margin-bottom: -85px;
     z-index: 5;
 }
 
@@ -15,6 +15,6 @@
     font-weight: bold;
 }
 
-. mobile {
+.mobile {
     margin-top: -60px;
 }

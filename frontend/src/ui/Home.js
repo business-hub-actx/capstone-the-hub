@@ -1,27 +1,23 @@
 import React from "react"
-import {Container, Row, Col} from "react-bootstrap";
+import {Container, Row, Col, Button} from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
 import AC from "./images/AC.jpg"
 import WT from "./images/WT.png"
 import "./Home.css"
 
 
+
 export function Home() {
     return (
         <>
-
-            <div id="landing" className="container-fluid flex-wrap">
-                {/*<Container className="landingImage">*/}
-                {/*    <Image src={LandingPic} alt="LandingPic"/>*/}
-                {/*</Container>*/}
-                <Container className="col-lg-4 text-center m-auto">
-                        <h1>Amarillo</h1>
-                        <h2>Tech Hub</h2>
-                        Nav
-                        <Row className="btn-lg btn-secondary">Profiles</Row>
-                        <Row className="btn-lg btn-secondary">Job Listings</Row>
+            <Container fluid id="landing">
+                <Container className="landing-text text-center">
+                        <h1 className="m-4 p-4">Amarillo</h1>
+                        <h2 className="m-4 p-4">Tech Hub</h2>
+                        <Button className="m-5" variant="light">Profiles</Button>
+                        <Button className="m-5" variant="light">Job Listings</Button>
                 </Container>
-            </div>
+            </Container>
 
 
             <div id="about" className="container text-center container-fluid px-5">
@@ -29,9 +25,9 @@ export function Home() {
                     <Container className="col-lg-12 px-5 py-5"></Container>
                     <h1>&bull;Our Mission Statement&bull;</h1>
                     <Row>
-                        oUR MISSION IS TO CREATE AN ONLINE INNOVAtive ecosystem where amarillo
+                        Our  is to create an online innovative ecosystem where Amarillo
                         residents in the tech industry can connect with employers and each other.
-                        Eventualy offering recourses as well. From educational oppurtunities to local
+                        Eventually offering recourses as well. From educational opportunities to local
                         networking events.
                     </Row>
                 </div>

@@ -1,9 +1,19 @@
 #landing {
     background-image: url("./images/LandingPic.jpg");
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: auto;
+
 }
 
 #AC-image{
-    padding-top: 500px;
+}
+
+.landing-text{
+    color: white;
+    padding: 200px;
+    align-items: center;
+    justify-content: center;
+
 }

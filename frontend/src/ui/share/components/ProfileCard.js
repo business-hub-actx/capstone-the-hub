@@ -1,8 +1,20 @@
-import React from "react"
+import React from "react";
 import {Card, Row, Col} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 export function ProfileCard({profile}) {
+    const tags = useSelector(state => {
+        const profileTags = state.profileTag.filter(profileTag => profileTag.profileTagPostId === profile.profileId)
+        let tags = []
+
+        for(let profileTag of profileTags){
+            const tag = state.tag.find(tag => profileTag.profileTagTagId === tag.tagId)
+            tags.push(tag)
+        }
+        return tags
+    })
+
     return (
         <>
             <Card className="my-2">
@@ -27,6 +39,7 @@ export function ProfileCard({profile}) {
                                     </Col>
                                 </Row>
                             </Card.Text>
+                            Tags: {tags.map(tag => <span>{tag.tagName} </span>)}
                         </Card.Body>
                     </Col>
                 </Row>

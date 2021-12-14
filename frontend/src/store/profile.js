@@ -1,6 +1,8 @@
 import {httpConfig} from '../ui/share/utils/httpConfig'
+import {combineReducers} from '@reduxjs/toolkit'
 import {createSlice} from '@reduxjs/toolkit'
 import {fetchAuth} from './auth'
+import {setPostTagsByPostId} from "./postTag";
 
 const profileSlice = createSlice({
     name: "profile",
@@ -11,7 +13,7 @@ const profileSlice = createSlice({
         },
         getAllProfiles: (profile, action) => {
             return action.payload
-}
+        }
 
     }
 })
@@ -32,7 +34,17 @@ export const {getAllProfiles} = profileSlice.actions
 
 export const fetchAllProfiles = () => async (dispatch) => {
     const {data} = await httpConfig('/apis/profile');
-    dispatch(getAllProfiles(data))
+    const tags = await httpConfig(`/apis/tag`).data
+
+    for ( const profile of data){
+        const profileId =profile.profileId
+        const profileTags = await httpConfig(`/apis/profileTag/profileTagProfileId/${profileId}`)
+    if (profileTags.data.length > 0) {
+        dispatch(setProfileTagsByProfileId(profileTags.data))
+    }
+}
+dispatch(getAllProfiles(data))
+dispatch(getAllTags(tags))
 }
 
 export default profileSlice.reducer

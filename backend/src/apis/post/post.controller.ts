@@ -32,9 +32,7 @@ export async function getPostByPostId(request: Request, response: Response) : Pr
 
     } catch (error: any) {
         return(response.json({status: 400, data: null, message: error.message}))
-
     }
-
 }
 
     export async function getPostByPostCompany(request: Request, response: Response) : Promise<Response> {
@@ -49,23 +47,19 @@ export async function getPostByPostId(request: Request, response: Response) : Pr
             return (response.json({status: 400, data: null, message: error.message}))
 
         }
-
-
     }
-
-
 
 export async function getPostByPostTagId(request: Request, response: Response) : Promise<Response> {
     try {
-        const {postId} = request.params;
-        const mySqlResult = await selectPostByPostTagId(postId);
+        const {tagId} = request.params;
+        console.log(tagId)
+        const mySqlResult = await selectPostByPostTagId(tagId);
         const data = mySqlResult ?? null
         const status: Status = {status: 200, data, message: null}
         return response.json(status)
 
     } catch (error: any) {
         return (response.json({status: 400, data: null, message: error.message}))
-
     }
 }
 

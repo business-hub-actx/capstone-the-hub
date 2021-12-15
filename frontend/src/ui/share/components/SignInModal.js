@@ -48,7 +48,7 @@ export function SignInModal() {
     // Sign in modal
     return (
         <>
-            <Button className="m-2" variant="outline-secondary" onClick={handleShow}>
+            <Button variant="Transparent" className="m-0 p-0" onClick={handleShow}>
                 Login
             </Button>
             <Modal show={show} onHide={handleClose}>
@@ -61,9 +61,9 @@ export function SignInModal() {
                     </Formik>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
+                    {/*<Button variant="secondary" onClick={handleClose}>*/}
+                    {/*    Close*/}
+                    {/*</Button>*/}
                 </Modal.Footer>
             </Modal>
         </>
@@ -111,7 +111,7 @@ function SignInFormContent(props) {
                     <div className={status.type}>{status.message}</div>
                 </>
             )}
-            <FormDebugger {...props}/>
+            {/*<FormDebugger {...props}/>*/}
         </>
     )
 }

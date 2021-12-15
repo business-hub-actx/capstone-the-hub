@@ -10,6 +10,7 @@ import {postTagRoute} from "./apis/postTag/postTag.routes";
 import {SignOutRoute} from "./apis/sign-out/sign-out.route";
 import {PostRoute} from "./apis/post/post.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
+import {profileTagRoute} from "./apis/profileTag/profileTag.routes";
 const helmet = require("helmet")
 
 const MemoryStore = require('memorystore')(session);
@@ -62,6 +63,7 @@ export class App {
         this.app.use('/apis/sign-out', SignOutRoute)
         this.app.use('/apis/post', PostRoute)
         this.app.use('/apis/profile', ProfileRoute)
+        this.app.use('/apis/profileTag', profileTagRoute)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

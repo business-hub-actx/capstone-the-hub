@@ -36,22 +36,11 @@ PostRoute.route("/postCompany/:postCompany")
     // .put(asyncValidatorController(checkSchema(postValidator)), putPostController)
 
 
-PostRoute.route("/postTagId/:postId")
+PostRoute.route("/tagId/:tagId")
     .get(
         asyncValidatorController([
-            check("postId", "please provide a valid postId").isUUID()
+            check("tagId", "please provide a valid postId").isUUID()
         ])
         , getPostByPostTagId
     )
-    // .put(asyncValidatorController(checkSchema(postValidator)), putPostController)
-
-
-
-// PostRoute.route("/tag/:postId")
-//     .get(
-//         asyncValidatorController([
-//             check("postId", "please provide a valid postId").isUUID()
-//         ])
-//         , getPostByPostTagId
-//     )
     // .put(asyncValidatorController(checkSchema(postValidator)), putPostController)

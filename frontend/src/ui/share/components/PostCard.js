@@ -1,9 +1,7 @@
 import React from "react"
 import {Card, Row, Col} from "react-bootstrap";
-import smLogoPic from "../../images/port1.webp"
 import {useSelector} from "react-redux";
 import postTag from "../../../store/postTag";
-
 
 export function PostCard({post}) {
     const tags = useSelector(state => {

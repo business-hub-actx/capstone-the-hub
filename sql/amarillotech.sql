@@ -36,8 +36,6 @@ CREATE TABLE post (
                        postCompany VARCHAR(32) NOT NULL,
                        postWebsite VARCHAR(128),
                        INDEX(postProfileId),
-                       UNIQUE(postEmail),
-                       UNIQUE(postWebsite),
                        FOREIGN KEY(postProfileId) REFERENCES profile(profileId),
                        PRIMARY KEY(postId)
 );

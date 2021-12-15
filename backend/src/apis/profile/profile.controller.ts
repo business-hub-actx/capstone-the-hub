@@ -6,7 +6,7 @@ import {selectProfileByProfileName} from "../../utils/profile/selectProfileByPro
 import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
 import {updateProfile} from "../../utils/profile/updateProfile";
 import {selectPartialProfileByProfileId} from "../../utils/profile/selectPartialProfileByProfileId";
-import {selectProfilesByProfileTagId} from "../../utils/profile/selectProfilesByProfileTagId";
+import {selectProfileByProfileTagId} from "../../utils/profile/selectProfileByProfileTagId";
 import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
 
 // Update Profile
@@ -104,7 +104,7 @@ export async function getPartialProfileByProfileIdController(request: Request, r
 export async function getProfilesByProfileTagIdController(request: Request, response: Response) {
     try {
         const {profileId} = request.params
-        const data: Profile | null = await selectProfilesByProfileTagId(profileId)
+        const data: Profile | null = await selectProfileByProfileTagId(profileId)
         const status: Status = {
             status: 200,
             data: data,
@@ -116,6 +116,7 @@ export async function getProfilesByProfileTagIdController(request: Request, resp
     }
 }
 
+// Select all profiles
 export async function getAllProfilesController(request: Request, response: Response): Promise<Response<Status>> {
     try {
         const data = await selectAllProfiles()

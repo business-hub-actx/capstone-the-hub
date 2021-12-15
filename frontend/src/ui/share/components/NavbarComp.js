@@ -49,6 +49,7 @@ export function NavbarComp() {
                                     <Nav className="ms-auto">
                                         <Nav.Link className="ms-auto">
                                             <SignupModal />
+                                            {" "}
                                             <SignInModal />
                                             {/*<Link to="/" className="navLink mx-1">{accountLog}</Link>*/}
                                         </Nav.Link>

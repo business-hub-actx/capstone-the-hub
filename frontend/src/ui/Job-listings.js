@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Container, Row, Col, Form, FormControl, Dropdown} from "react-bootstrap";
 import "./job-listings.css"
-import {Dropdown} from "react-bootstrap";
 
 import {useDispatch, useSelector} from "react-redux";
 import {fetchPostsByTagJobListing, fetchPostsForJobListing} from "../store/post";
@@ -35,8 +34,8 @@ export function JobListings() {
                     </Col>
                 </Row>
                 <Row className="d-flex justify-content-center">
-                    <Col lg={3} md={3} sm={4} xs={5} className="mt-lg-5">
-                        <Form className="searchInput m-3">
+                    <Col lg={3} md={3} sm={4} xs={5} className=" search-dropdown mt-lg-5 d-flex">
+                        <Form className="searchInput">
                             <FormControl
                                 type="Search"
                                 placeholder="Search"
@@ -44,10 +43,8 @@ export function JobListings() {
                                 aria-label="Search"
                             />
                         </Form>
-                    </Col>
-                    <Col>
-                        <Dropdown className="py-1 px-5 d-flex justify-content-center">
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <Dropdown className="px-3 d-flex justify-content-center">
+                            <Dropdown.Toggle variant="warning" id="dropdown-basic">
                                 Filters
                             </Dropdown.Toggle>
                             <Dropdown.Menu>

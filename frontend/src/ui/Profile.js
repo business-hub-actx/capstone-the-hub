@@ -31,8 +31,8 @@ export const Profile = () => {
                     </Col>
                 </Row>
                 <Row className="d-flex justify-content-center">
-                    <Col lg={3} md={3} sm={4} xs={5} className="mt-lg-5">
-                        <Form className="searchInput m-3">
+                    <Col lg={3} md={3} sm={4} xs={5} className="mt-lg-5 d-flex">
+                        <Form className="searchInput">
                             <FormControl
                                 type="Search"
                                 placeholder="Search"
@@ -40,18 +40,18 @@ export const Profile = () => {
                                 aria-label="Search"
                             />
                         </Form>
+                            <Dropdown className="px-3 d-flex justify-content-center">
+                                <Dropdown.Toggle variant="warning" id="dropdown-basic">
+                                    Filters
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    {tags.map(tag =>  <Dropdown.Item value="" onClick={() => {
+                                        dispatch(fetchProfileTagByProfileTagTagId(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)
+                                    }
+                                </Dropdown.Menu>
+                            </Dropdown>
                     </Col>
                     {/*<Col lg={3} md={3} sm={4} xs={5} className="mt-lg-5">*/}
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            Dropdown Button
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            {tags.map(tag =>  <Dropdown.Item value="" onClick={() => {
-                                dispatch(fetchProfileTagByProfileTagTagId(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)
-                            }
-                        </Dropdown.Menu>
-                    </Dropdown>
                 </Row>
             </Container>
 

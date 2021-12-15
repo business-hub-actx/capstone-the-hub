@@ -5,7 +5,7 @@ import "./job-form.css"
 export function JobForm() {
     return (
         <>
-            <div className="main">
+            <div className="main mt-3">
                 <Container id="page-intro">
                     <h1 className="post-a-job">Post a Job</h1>
                     <h2 className="job-details">Job Details</h2>
@@ -85,7 +85,7 @@ export function JobForm() {
                             </div>
                         </div>
 
-                        <Button className="submit" variant="primary" type="submit">
+                        <Button className="submit" variant="warning" type="submit">
                             Submit
                         </Button>
                     </Form>

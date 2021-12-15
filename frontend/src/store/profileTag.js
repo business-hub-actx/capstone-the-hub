@@ -12,13 +12,18 @@ const profileTagSlice = createSlice({
             return action.payload
         },
         setProfileTagsByProfileId: (profileTags, action) => {
-            profileTags.push(...action.payload)
+         return [... profileTags, ...action.payload].filter(onlyUnique)
         }
     }
 })
 
-export const {getProfileTagsByPrimaryKey, getProfileTagByProfileTagTagId, setProfileTagsByProfileId} = profileTagSlice.actions
 
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
+
+export const {getProfileTagsByPrimaryKey, getProfileTagByProfileTagTagId, setProfileTagsByProfileId} = profileTagSlice.actions
 
 export const fetchProfileTagsByPrimaryKey = (profileTagProfileId, profileTagTagId) => async (dispatch) => {
     const {data} = await httpConfig(`/apis/profileTag/profileTagProfileId/${profileTagProfileId}/profileTagTagId/${profileTagTagId}`);

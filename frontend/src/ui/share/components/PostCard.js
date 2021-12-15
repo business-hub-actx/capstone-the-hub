@@ -7,8 +7,10 @@ export function PostCard({post}) {
     const tags = useSelector(state => {
         const postTags = state.postTag.filter(postTag => postTag.postTagPostId === post.postId)
         let tags = []
+        const postTagSet = new Set(postTags)
 
-        for(let postTag of postTags){
+
+        for(let postTag of postTagSet){
             const tag = state.tag.find(tag => postTag.postTagTagId === tag.tagId)
             tags.push(tag)
         }

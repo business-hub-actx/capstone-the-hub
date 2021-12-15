@@ -12,13 +12,16 @@ const postTagSlice = createSlice({
             return action.payload
         },
         setPostTagsByPostId: (postTags, action) => {
-            postTags.push(...action.payload)
+            return [...postTags, ...action.payload].filter(onlyUnique)
         }
     }
 })
 
-export const {getPostTagsByPrimaryKey, getPostTagByPostTagTagId, setPostTagsByPostId} = postTagSlice.actions
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
 
+export const {getPostTagsByPrimaryKey, getPostTagByPostTagTagId, setPostTagsByPostId} = postTagSlice.actions
 
 export const fetchPostTagsByPrimaryKey = (postTagPostId, postTagTagId) => async (dispatch) => {
     const {data} = await httpConfig(`/apis/postTag/postTagPostId/${postTagPostId}/postTagTagId/${postTagTagId}`);

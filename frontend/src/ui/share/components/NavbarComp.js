@@ -43,6 +43,7 @@ export function NavbarComp() {
                                         <Nav.Link>
                                             <Link to={pagePath1} className="navLink mx-2 btn-outline-warning">{pageLink1}</Link>
                                             <Link to={pagePath2} className="navLink mx-2 btn-outline-warning">{pageLink2}</Link>
+                                            <Link to={"/Job-form"} className="navLink mx-2 btn-outline-warning">Post A Job</Link>
                                         </Nav.Link>
                                     </Nav>
                                     <Nav className="ms-auto">

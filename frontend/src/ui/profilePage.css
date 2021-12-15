@@ -26,13 +26,15 @@
 }
 
 .proTitle {
-    color: black;
-    font-size: clamp(1rem, 6vmin, 2rem);
+    color: white;
+    background-color: rgba(75,69,70,0.64);
+    font-size: 30px;
     font-family: "Times New Roman", monospace;
     font-weight: bolder;
-    background-color: white;
     margin-left: 200px;
     margin-top: 80px;
+    text-shadow: white;
+    box-shadow: white;
 }
 
 .searchInput {

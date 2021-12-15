@@ -21,20 +21,22 @@
     background-size: cover;
     height: 395px;
     z-index: 0;
+    padding: -5px;
 
 }
 
 .jobTitle {
-    color: black;
-    font-size: 40px;
+    color: white;
+    background-color: rgba(75,69,70,0.64);
+    font-size: 30px;
     font-family: "Times New Roman", monospace;
     font-weight: bolder;
-    background-color: white;
     margin-left: 200px;
     margin-top: 80px;
+    text-shadow: white;
+    box-shadow: white;
 }
 
 .searchInput {
     margin-bottom: -400px;
 }
-

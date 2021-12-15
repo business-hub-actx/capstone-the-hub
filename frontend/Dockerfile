@@ -9,4 +9,4 @@ FROM nginx:1.15
 COPY --from=build-stage ./build/ /usr/share/nginx/html
 # Copy the default nginx.conf provided by tiangolo/node-frontend
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-CMD ["nginx", "-g", "daemon off;"]cd
+CMD ["nginx", "-g", "daemon off;"]

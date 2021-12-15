@@ -2,34 +2,25 @@ import React, {useEffect, useState} from "react";
 import {Container, Row, Col, Form, FormControl} from "react-bootstrap";
 import "./job-listings.css"
 import {Dropdown} from "react-bootstrap";
-
-
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPostsForJobListing} from "../store/post";
-
+import {fetchPostsByTagJobListing, fetchPostsForJobListing} from "../store/post";
 import {PostCard} from "./share/components/PostCard";
 import {fetchPostTagByPostTagTagId, fetchPostTagsByPrimaryKey} from "../store/postTag";
 import {fetchAllTags} from "../store/tag";
 
-
 export function JobListings() {
 
-    const [postTagTagId, setPostTagTagId] = useState(null)
-    const posts = useSelector( state => state.post ? state.post : []);
+    const [tagId, setPostTagTagId] = useState(null)
+    const posts = useSelector(state => state.post ? state.post : []);
     const tags = useSelector(state => state.tag ? state.tag : []);
-    // const postTags = useSelector(state => state.postTag ? state.postTag : []);
     const dispatch = useDispatch();
     const effects = () => {
         dispatch(fetchPostsForJobListing());
         dispatch(fetchAllTags());
         // dispatch(fetchPostTagsByPrimaryKey(postTagPostId, postTagTagId))
     };
-    const inputs = [dispatch, postTagTagId]
-
+    const inputs = [dispatch, tagId]
     useEffect(effects, inputs);
-
-    // const filteredPosts = posts.filter(post => post.postId === postTags.find(postTag => postTag.postTagPostId === post.postId))
-    // console.log(filteredPosts)
 
 
     return (
@@ -53,20 +44,19 @@ export function JobListings() {
                             />
                         </Form>
                     </Col>
-                        <Dropdown>
+                    <Col>
+                        <Dropdown className="py-1 px-5 d-flex justify-content-center">
                             <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                Dropdown Button
+                                Filters
                             </Dropdown.Toggle>
-
                             <Dropdown.Menu>
-                                {tags.map(tag =>  <Dropdown.Item value=""
-                                    onClick={() => {
-                                        dispatch(fetchPostTagByPostTagTagId(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)}
+                                {tags.map(tag => <Dropdown.Item value="" onClick={() => {
+                                    dispatch(fetchPostsByTagJobListing(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)}
                             </Dropdown.Menu>
                         </Dropdown>
+                    </Col>
                 </Row>
             </Container>
-
 
 
             {/*JOB POST LISTINGS*/}

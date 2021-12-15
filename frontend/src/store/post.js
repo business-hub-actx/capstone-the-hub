@@ -36,4 +36,21 @@ export const fetchPostsForJobListing = () => async (dispatch) => {
     dispatch(getAllTags(tags))
 }
 
+export const fetchPostsByTagJobListing = (id) => async (dispatch) => {
+    const {data} = await httpConfig(`/apis/post/tagId/${id}`);
+    const tags = await httpConfig('/apis/tag').data
+
+    for (const post of data){
+        const postId = post.postId
+        const postTags = await httpConfig(`/apis/postTag/postTagPostId/${postId}`)
+        if(postTags.data.length > 0){
+            dispatch(setPostTagsByPostId(postTags.data))
+        }
+    }
+
+
+    dispatch(getAllPosts(data))
+    dispatch(getAllTags(tags))
+}
+
 export default postSlice.reducer

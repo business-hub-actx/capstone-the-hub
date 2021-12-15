@@ -72,7 +72,8 @@ export function SignupModal() {
                     <Modal.Title>Signup form</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validation}>
+                    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+                        {/*validationSchema={validation}*/}
                         {SignupFormContent}
                     </Formik>
                 </Modal.Body>
@@ -103,58 +104,59 @@ function SignupFormContent(props) {
     return (
         <>
         <form onSubmit={handleSubmit} noValidate>
-            <Form.Group className="mb-3" controlId="profileEmail">
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control value={values.profileEmail} type="email" onChange={handleChange}
-                              onBlur={handleBlur} placeholder="Enter email"/>
-            </Form.Group>
+            <div className="mb-3"><label className="form-label" htmlFor="profileEmail">Email Address</label><input
+                placeholder="Enter email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                type="text" id="profileEmail" className="form-control"/>
+            </div>
              <HandleError errors = {errors} touched = {touched} value = {"profileEmail"}/>
 
             <Form.Group className="mb-3" controlId="profilePassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control value={values.profilePassword} type="password" onChange={handleChange}
+                <Form.Control type="password" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Password"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profilePassword"}/>
 
             <Form.Group className="mb-3" controlId="profilePasswordConfirm">
                 <Form.Label>Password Confirm</Form.Label>
-                <Form.Control value={values.profilePasswordConfirm} type="password" onChange={handleChange}
+                <Form.Control type="password" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Password"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profilePasswordConfirm"}/>
 
             <Form.Group className="mb-3" controlId="profileName">
                 <Form.Label>Name</Form.Label>
-                <Form.Control value={values.profileName} type="text" onChange={handleChange}
+                <Form.Control type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="John Smith"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profileName"}/>
 
             <Form.Group className="mb-3" controlId="profileJobTitle">
                 <Form.Label>Job Title</Form.Label>
-                <Form.Control value={values.profileJobTitle} type="text" onChange={handleChange}
+                <input type="text" name="profileJobTitle" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Fullstack Developer"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profileJobTitle"}/>
 
             <Form.Group className="mb-3" controlId="profileUrl">
                 <Form.Label>Url</Form.Label>
-                <Form.Control value={values.profileUrl} type="url" onChange={handleChange}
+                <Form.Control type="url" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Awesome portfolio"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profileUrl"}/>
 
             <Form.Group className="mb-3" controlId="profileSkills">
                 <Form.Label>Skills</Form.Label>
-                <Form.Control value={values.profileSkills} type="text" onChange={handleChange}
+                <Form.Control type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Languages and frameworks"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profileSkills"}/>
 
             <Form.Group className="mb-3" controlId="profileAboutMe">
                 <Form.Label>AboutMe</Form.Label>
-                <Form.Control value={values.profileAboutMe} type="text" onChange={handleChange}
+                <Form.Control type="text" onChange={handleChange}
                               onBlur={handleBlur} placeholder="Bio"/>
             </Form.Group>
             <HandleError errors = {errors} touched = {touched} value = {"profileAboutMe"}/>
@@ -168,7 +170,7 @@ function SignupFormContent(props) {
             <div className={status.type}>{status.message}</div>
         </>
     )}
-            {/*<FormDebugger {...props}/>*/}
+            <FormDebugger {...props}/>
         </>
     )
 }

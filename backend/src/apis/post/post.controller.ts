@@ -32,9 +32,7 @@ export async function getPostByPostId(request: Request, response: Response) : Pr
 
     } catch (error: any) {
         return(response.json({status: 400, data: null, message: error.message}))
-
     }
-
 }
 
     export async function getPostByPostCompany(request: Request, response: Response) : Promise<Response> {
@@ -49,11 +47,7 @@ export async function getPostByPostId(request: Request, response: Response) : Pr
             return (response.json({status: 400, data: null, message: error.message}))
 
         }
-
-
     }
-
-
 
 export async function getPostByPostTagId(request: Request, response: Response) : Promise<Response> {
     try {
@@ -66,7 +60,6 @@ export async function getPostByPostTagId(request: Request, response: Response) :
 
     } catch (error: any) {
         return (response.json({status: 400, data: null, message: error.message}))
-
     }
 }
 

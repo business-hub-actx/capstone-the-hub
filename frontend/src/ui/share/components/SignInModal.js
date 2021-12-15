@@ -48,7 +48,7 @@ export function SignInModal() {
     // Sign in modal
     return (
         <>
-            <Button variant="Transparent" className="m-0 p-0" onClick={handleShow}>
+            <Button variant="Transparent" className="m-2 p-0" onClick={handleShow}>
                 Login
             </Button>
             <Modal show={show} onHide={handleClose}>

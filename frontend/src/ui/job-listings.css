@@ -1,16 +1,16 @@
 .filterInput {
     margin-top: 270px;
-    z-index: 2;
+    z-index: 4;
 }
 
 .jobList {
     margin-top: -20px;
-    z-index: 1;
+    z-index: 2;
     position: relative;
 }
 
 .jobCol {
-    z-index: 1;
+    z-index: 2;
 }
 
 .jobHeader {
@@ -36,5 +36,11 @@
 
 .searchInput {
     margin-bottom: -400px;
+}
+
+.dropdown{
+    padding: 5px;
+    margin-left: 10px;
+    position: relative;
 }
 

@@ -85,7 +85,7 @@ export function JobForm() {
                             </div>
                         </div>
 
-                        <Button className="submit" variant="primary" type="submit">
+                        <Button className="submit" variant="warning" type="submit">
                             Submit
                         </Button>
                     </Form>

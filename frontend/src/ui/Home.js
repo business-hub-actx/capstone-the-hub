@@ -14,8 +14,8 @@ export function Home() {
                 <Container className="landing-text container-fluid text-center">
                         <h1 className="m-2 p-2">Amarillo</h1>
                         <h2 className="m-2 p-2">Tech Hub</h2>
-                        <Button className="pro m-5" variant="outline-warning">Profiles</Button>
-                        <Button className="job m-5" variant="outline-warning">Job Listings</Button>
+                        <Button className="pro m-5" variant="warning">Profiles</Button>
+                        <Button className="job m-5" variant="warning">Job Listings</Button>
                 </Container>
             </Container>
 

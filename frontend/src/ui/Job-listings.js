@@ -44,26 +44,27 @@ export function JobListings() {
                 </Row>
                 <Row className="d-flex justify-content-center">
                     <Col lg={3} md={3} sm={4} xs={5} className="mt-lg-5">
-                        <Form className="searchInput m-3">
+                        <Form className="searchInput d-flex">
                             <FormControl
                                 type="Search"
                                 placeholder="Search"
                                 className="rounded-pill"
                                 aria-label="Search"
                             />
+                            <Dropdown className="dropdown">
+                                <Dropdown.Toggle  variant="warning" id="dropdown-basic">
+                                    Filters
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    {tags.map(tag =>  <Dropdown.Item value="" onClick={() => {
+                                        dispatch(fetchPostTagByPostTagTagId(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)}
+
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </Form>
                     </Col>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                Dropdown Button
-                            </Dropdown.Toggle>
 
-                            <Dropdown.Menu>
-                                {tags.map(tag =>  <Dropdown.Item value=""
-                                    onClick={() => {
-                                        dispatch(fetchPostTagByPostTagTagId(tag.tagId))}}>{tag.tagName}</Dropdown.Item>)}
-                            </Dropdown.Menu>
-                        </Dropdown>
                 </Row>
             </Container>
 

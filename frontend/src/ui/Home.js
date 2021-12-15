@@ -22,7 +22,7 @@ export function Home() {
 
             <div id="about" className="container text-center container-fluid px-5">
                 <div className="row">
-                    <Container className="col-lg-12 px-5 py-5"/>
+                    <Container className="text1 col-lg-12 px-5 py-5"/>
                     <h1>&bull; Our Mission Statement &bull;</h1>
                     <Row>
                         Our  is to create an online innovative ecosystem where Amarillo

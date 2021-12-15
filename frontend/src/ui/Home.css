@@ -31,7 +31,7 @@
 
 .pro{
     font-family: Gill Sans sans-serif;
-    color: #FFFFFF;
+    color: #FFC107;
     font-size: 35px;
     padding: 20px;
     text-decoration: none;
@@ -47,7 +47,7 @@
 
 .job{
     font-family: Gill Sans sans-serif;
-    color: #FFFFFF;
+    color: #FFC107;
     font-size: 35px;
     padding: 20px;
     text-decoration: none;
@@ -60,7 +60,4 @@
     text-shadow: 5px 4px 7px #2D2E29;
     border: solid #080708 2px;
 }
-
-
-
 

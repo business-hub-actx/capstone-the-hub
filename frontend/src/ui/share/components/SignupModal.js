@@ -170,7 +170,7 @@ function SignupFormContent(props) {
             <div className={status.type}>{status.message}</div>
         </>
     )}
-            <FormDebugger {...props}/>
+            {/*<FormDebugger {...props}/>*/}
         </>
     )
 }

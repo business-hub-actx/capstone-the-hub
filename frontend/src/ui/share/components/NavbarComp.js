@@ -41,8 +41,8 @@ export function NavbarComp() {
                                 <>
                                     <Nav>
                                         <Nav.Link>
-                                            <Link to={pagePath1} className="navLink mx-1">{pageLink1}</Link>
-                                            <Link to={pagePath2} className="navLink mx-1">{pageLink2}</Link>
+                                            <Link to={pagePath1} className="navLink mx-2 btn-outline-warning">{pageLink1}</Link>
+                                            <Link to={pagePath2} className="navLink mx-2 btn-outline-warning">{pageLink2}</Link>
                                         </Nav.Link>
                                     </Nav>
                                     <Nav className="ms-auto">

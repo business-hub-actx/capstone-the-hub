@@ -63,7 +63,7 @@ export function SignupModal() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button className="p-2" variant="outline-secondary" onClick={handleShow}>
                 Sign up
             </Button>
 

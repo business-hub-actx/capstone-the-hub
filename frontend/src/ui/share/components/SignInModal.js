@@ -48,7 +48,7 @@ export function SignInModal() {
     // Sign in modal
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button className="m-2" variant="outline-secondary" onClick={handleShow}>
                 Login
             </Button>
             <Modal show={show} onHide={handleClose}>
